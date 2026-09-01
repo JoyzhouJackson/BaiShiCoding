@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.idea/
+.playwright-cli/
+venv/
+results/
+data/archive/
+data/draft/
+freight-desktop.png
+freight-mobile.png
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+web/vite.config.js
+web/vite.config.d.ts

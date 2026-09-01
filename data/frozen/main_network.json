@@ -1,0 +1,1207 @@
+{
+  "schema_version": 5,
+  "status": "approved_revised_v5",
+  "nodes": [
+    {
+      "id": "A",
+      "handling_capacity": [
+        25.0,
+        25.09,
+        25.06,
+        26.52,
+        25.13,
+        27.42,
+        24.81,
+        25.37,
+        25.22,
+        25.35,
+        22.6,
+        25.39,
+        25.47,
+        23.8,
+        24.2,
+        23.87,
+        26.34,
+        25.27,
+        22.64,
+        26.2,
+        27.5,
+        24.95,
+        26.03,
+        22.7
+      ],
+      "storage_capacity": 33.0,
+      "initial_own_vehicles": 2,
+      "external_vehicle_limit": [
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "B",
+      "handling_capacity": [
+        41.0,
+        39.14,
+        43.49,
+        39.63,
+        43.83,
+        42.14,
+        37.7,
+        40.44,
+        42.93,
+        40.9,
+        42.17,
+        41.02,
+        40.64,
+        41.54,
+        41.88,
+        38.42,
+        38.22,
+        38.52,
+        42.63,
+        43.09,
+        36.9,
+        37.1,
+        37.81,
+        39.7
+      ],
+      "storage_capacity": 67.0,
+      "initial_own_vehicles": 2,
+      "external_vehicle_limit": [
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "C",
+      "handling_capacity": [
+        22.99,
+        22.93,
+        24.32,
+        21.41,
+        23.43,
+        23.42,
+        22.11,
+        21.34,
+        24.65,
+        21.06,
+        23.1,
+        23.04,
+        24.72,
+        23.96,
+        24.08,
+        21.06,
+        21.53,
+        21.75,
+        24.1,
+        22.45,
+        22.29,
+        23.46,
+        20.72,
+        21.4
+      ],
+      "storage_capacity": 68.0,
+      "initial_own_vehicles": 5,
+      "external_vehicle_limit": [
+        0,
+        2,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "D",
+      "handling_capacity": [
+        34.34,
+        37.36,
+        33.45,
+        38.1,
+        36.49,
+        36.96,
+        34.2,
+        37.16,
+        35.4,
+        39.44,
+        40.53,
+        38.4,
+        37.35,
+        39.58,
+        38.78,
+        39.78,
+        40.26,
+        35.64,
+        35.98,
+        33.37,
+        37.47,
+        39.49,
+        38.59,
+        34.59
+      ],
+      "storage_capacity": 78.0,
+      "initial_own_vehicles": 4,
+      "external_vehicle_limit": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "E",
+      "handling_capacity": [
+        32.06,
+        31.99,
+        28.21,
+        31.06,
+        31.94,
+        31.47,
+        30.0,
+        27.66,
+        32.61,
+        29.55,
+        27.28,
+        31.2,
+        31.52,
+        30.33,
+        29.36,
+        31.51,
+        29.1,
+        32.64,
+        28.77,
+        31.84,
+        32.37,
+        28.22,
+        27.74,
+        31.21
+      ],
+      "storage_capacity": 77.0,
+      "initial_own_vehicles": 3,
+      "external_vehicle_limit": [
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "F",
+      "handling_capacity": [
+        25.47,
+        25.95,
+        24.88,
+        23.25,
+        23.32,
+        24.07,
+        22.51,
+        26.0,
+        25.96,
+        23.76,
+        22.07,
+        23.48,
+        24.35,
+        21.74,
+        22.76,
+        24.33,
+        23.66,
+        23.1,
+        25.46,
+        23.24,
+        26.01,
+        25.83,
+        24.43,
+        23.45
+      ],
+      "storage_capacity": 33.0,
+      "initial_own_vehicles": 3,
+      "external_vehicle_limit": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        2,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "G",
+      "handling_capacity": [
+        29.22,
+        32.8,
+        30.28,
+        30.26,
+        27.03,
+        28.47,
+        29.83,
+        27.56,
+        28.74,
+        28.9,
+        31.23,
+        29.0,
+        31.73,
+        30.26,
+        28.38,
+        31.79,
+        30.11,
+        30.69,
+        27.8,
+        29.97,
+        32.01,
+        31.86,
+        32.47,
+        28.05
+      ],
+      "storage_capacity": 32.0,
+      "initial_own_vehicles": 4,
+      "external_vehicle_limit": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "H",
+      "handling_capacity": [
+        25.08,
+        24.19,
+        26.69,
+        26.69,
+        28.19,
+        26.14,
+        23.77,
+        25.72,
+        28.09,
+        28.52,
+        25.47,
+        24.52,
+        27.06,
+        27.08,
+        28.16,
+        27.5,
+        26.94,
+        23.85,
+        26.78,
+        25.55,
+        25.14,
+        26.37,
+        25.78,
+        24.54
+      ],
+      "storage_capacity": 66.0,
+      "initial_own_vehicles": 3,
+      "external_vehicle_limit": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        0,
+        2,
+        0,
+        2,
+        0,
+        0
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "A_B",
+      "origin": "A",
+      "destination": "B",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "B_A",
+      "origin": "B",
+      "destination": "A",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "A_C",
+      "origin": "A",
+      "destination": "C",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "C_A",
+      "origin": "C",
+      "destination": "A",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "A_D",
+      "origin": "A",
+      "destination": "D",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "D_A",
+      "origin": "D",
+      "destination": "A",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "B_C",
+      "origin": "B",
+      "destination": "C",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "C_B",
+      "origin": "C",
+      "destination": "B",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "B_E",
+      "origin": "B",
+      "destination": "E",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "E_B",
+      "origin": "E",
+      "destination": "B",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "C_D",
+      "origin": "C",
+      "destination": "D",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "D_C",
+      "origin": "D",
+      "destination": "C",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "C_F",
+      "origin": "C",
+      "destination": "F",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "F_C",
+      "origin": "F",
+      "destination": "C",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "D_G",
+      "origin": "D",
+      "destination": "G",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "G_D",
+      "origin": "G",
+      "destination": "D",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "E_F",
+      "origin": "E",
+      "destination": "F",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "F_E",
+      "origin": "F",
+      "destination": "E",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "E_H",
+      "origin": "E",
+      "destination": "H",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "H_E",
+      "origin": "H",
+      "destination": "E",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "F_G",
+      "origin": "F",
+      "destination": "G",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "G_F",
+      "origin": "G",
+      "destination": "F",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "G_H",
+      "origin": "G",
+      "destination": "H",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "H_G",
+      "origin": "H",
+      "destination": "G",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    }
+  ],
+  "scheduled_trips": [
+    {
+      "id": "SCH_A_B_D1_1",
+      "edge_id": "A_B",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_A_B_D1_2",
+      "edge_id": "A_B",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_A_B_D2_1",
+      "edge_id": "A_B",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_A_B_D2_2",
+      "edge_id": "A_B",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_A_B_D3_1",
+      "edge_id": "A_B",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_A_B_D3_2",
+      "edge_id": "A_B",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_B_A_D1_1",
+      "edge_id": "B_A",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_B_A_D2_1",
+      "edge_id": "B_A",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_B_A_D3_1",
+      "edge_id": "B_A",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_A_C_D1_1",
+      "edge_id": "A_C",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_A_C_D1_2",
+      "edge_id": "A_C",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_A_C_D2_1",
+      "edge_id": "A_C",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_A_C_D2_2",
+      "edge_id": "A_C",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_A_C_D3_1",
+      "edge_id": "A_C",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_A_C_D3_2",
+      "edge_id": "A_C",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_C_A_D1_1",
+      "edge_id": "C_A",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_C_A_D2_1",
+      "edge_id": "C_A",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_C_A_D3_1",
+      "edge_id": "C_A",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_A_D_D1_1",
+      "edge_id": "A_D",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_A_D_D2_1",
+      "edge_id": "A_D",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_A_D_D3_1",
+      "edge_id": "A_D",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_D_A_D1_1",
+      "edge_id": "D_A",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_D_A_D1_2",
+      "edge_id": "D_A",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_D_A_D2_1",
+      "edge_id": "D_A",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_D_A_D2_2",
+      "edge_id": "D_A",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_D_A_D3_1",
+      "edge_id": "D_A",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_D_A_D3_2",
+      "edge_id": "D_A",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_B_C_D1_1",
+      "edge_id": "B_C",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_B_C_D2_1",
+      "edge_id": "B_C",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_B_C_D3_1",
+      "edge_id": "B_C",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_C_B_D1_1",
+      "edge_id": "C_B",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_C_B_D2_1",
+      "edge_id": "C_B",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_C_B_D3_1",
+      "edge_id": "C_B",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_B_E_D1_1",
+      "edge_id": "B_E",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_B_E_D1_2",
+      "edge_id": "B_E",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_B_E_D2_1",
+      "edge_id": "B_E",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_B_E_D2_2",
+      "edge_id": "B_E",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_B_E_D3_1",
+      "edge_id": "B_E",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_B_E_D3_2",
+      "edge_id": "B_E",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_E_B_D1_1",
+      "edge_id": "E_B",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_E_B_D1_2",
+      "edge_id": "E_B",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_E_B_D2_1",
+      "edge_id": "E_B",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_E_B_D2_2",
+      "edge_id": "E_B",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_E_B_D3_1",
+      "edge_id": "E_B",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_E_B_D3_2",
+      "edge_id": "E_B",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_C_D_D1_1",
+      "edge_id": "C_D",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_C_D_D1_2",
+      "edge_id": "C_D",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_C_D_D2_1",
+      "edge_id": "C_D",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_C_D_D2_2",
+      "edge_id": "C_D",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_C_D_D3_1",
+      "edge_id": "C_D",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_C_D_D3_2",
+      "edge_id": "C_D",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_D_C_D1_1",
+      "edge_id": "D_C",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_D_C_D2_1",
+      "edge_id": "D_C",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_D_C_D3_1",
+      "edge_id": "D_C",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_C_F_D1_1",
+      "edge_id": "C_F",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_C_F_D2_1",
+      "edge_id": "C_F",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_C_F_D3_1",
+      "edge_id": "C_F",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_F_C_D1_1",
+      "edge_id": "F_C",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_F_C_D2_1",
+      "edge_id": "F_C",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_F_C_D3_1",
+      "edge_id": "F_C",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_D_G_D1_1",
+      "edge_id": "D_G",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_D_G_D2_1",
+      "edge_id": "D_G",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_D_G_D3_1",
+      "edge_id": "D_G",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_G_D_D1_1",
+      "edge_id": "G_D",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_G_D_D2_1",
+      "edge_id": "G_D",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_G_D_D3_1",
+      "edge_id": "G_D",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_E_F_D1_1",
+      "edge_id": "E_F",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_E_F_D2_1",
+      "edge_id": "E_F",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_E_F_D3_1",
+      "edge_id": "E_F",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_F_E_D1_1",
+      "edge_id": "F_E",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_F_E_D1_2",
+      "edge_id": "F_E",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_F_E_D2_1",
+      "edge_id": "F_E",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_F_E_D2_2",
+      "edge_id": "F_E",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_F_E_D3_1",
+      "edge_id": "F_E",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_F_E_D3_2",
+      "edge_id": "F_E",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_E_H_D1_1",
+      "edge_id": "E_H",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_E_H_D1_2",
+      "edge_id": "E_H",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_E_H_D2_1",
+      "edge_id": "E_H",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_E_H_D2_2",
+      "edge_id": "E_H",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_E_H_D3_1",
+      "edge_id": "E_H",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_E_H_D3_2",
+      "edge_id": "E_H",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_H_E_D1_1",
+      "edge_id": "H_E",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_H_E_D2_1",
+      "edge_id": "H_E",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_H_E_D3_1",
+      "edge_id": "H_E",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_F_G_D1_1",
+      "edge_id": "F_G",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_F_G_D1_2",
+      "edge_id": "F_G",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_F_G_D2_1",
+      "edge_id": "F_G",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_F_G_D2_2",
+      "edge_id": "F_G",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_F_G_D3_1",
+      "edge_id": "F_G",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_F_G_D3_2",
+      "edge_id": "F_G",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_G_F_D1_1",
+      "edge_id": "G_F",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_G_F_D1_2",
+      "edge_id": "G_F",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_G_F_D2_1",
+      "edge_id": "G_F",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_G_F_D2_2",
+      "edge_id": "G_F",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_G_F_D3_1",
+      "edge_id": "G_F",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_G_F_D3_2",
+      "edge_id": "G_F",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_G_H_D1_1",
+      "edge_id": "G_H",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_G_H_D2_1",
+      "edge_id": "G_H",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_G_H_D3_1",
+      "edge_id": "G_H",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_H_G_D1_1",
+      "edge_id": "H_G",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_H_G_D1_2",
+      "edge_id": "H_G",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_H_G_D2_1",
+      "edge_id": "H_G",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_H_G_D2_2",
+      "edge_id": "H_G",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_H_G_D3_1",
+      "edge_id": "H_G",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_H_G_D3_2",
+      "edge_id": "H_G",
+      "departure_slot": 22
+    }
+  ]
+}

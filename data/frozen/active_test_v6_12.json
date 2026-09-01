@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "name": "v6_twelve_case_demonstration_set",
+  "purpose": "Demonstrate solution feasibility and compare methods; not for significance claims.",
+  "selection_policy": "For each category, sort the five frozen cases by case_id and select the first three without using solver outcomes.",
+  "cases_per_category": 3,
+  "categories": {
+    "normal": [
+      "test_normal_001",
+      "test_normal_002",
+      "test_normal_003"
+    ],
+    "urgent_insert": [
+      "test_urgent_insert_001",
+      "test_urgent_insert_002",
+      "test_urgent_insert_003"
+    ],
+    "urgent_cancel": [
+      "test_urgent_cancel_001",
+      "test_urgent_cancel_002",
+      "test_urgent_cancel_003"
+    ],
+    "vehicle_breakdown": [
+      "test_vehicle_breakdown_001",
+      "test_vehicle_breakdown_002",
+      "test_vehicle_breakdown_003"
+    ]
+  }
+}

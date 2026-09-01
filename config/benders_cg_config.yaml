@@ -1,0 +1,7 @@
+# Algorithm-only controls. The frozen V6 business model remains in base_config.yaml.
+max_benders_iterations: 2000
+max_column_generation_iterations: 100
+columns_per_iteration: 250
+verification_time_limit_seconds: 1800
+recovery_time_reserve_seconds: 60
+pricing_universe: same_36_candidate_itineraries_per_demand_as_milp

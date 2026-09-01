@@ -1,0 +1,138 @@
+{
+  "status": "pass",
+  "errors": [],
+  "warnings": [],
+  "counts": {
+    "verification": 4,
+    "validation": 80,
+    "test": 20,
+    "validation_by_category": {
+      "normal": 20,
+      "urgent_insert": 20,
+      "urgent_cancel": 20,
+      "vehicle_breakdown": 20
+    },
+    "test_by_category": {
+      "normal": 5,
+      "urgent_insert": 5,
+      "urgent_cancel": 5,
+      "vehicle_breakdown": 5
+    }
+  },
+  "fixed_main_environment": {
+    "unique_node_parameter_sets": 1,
+    "unique_edge_sets": 1,
+    "unique_schedules": 1
+  },
+  "demand": {
+    "forecast_product_shares": {
+      "economy": 0.30000023646333,
+      "standard": 0.5000009195796085,
+      "urgent": 0.19999884395706155
+    },
+    "mean_absolute_record_error_ratio": 0.11384549951347134,
+    "generated_batch_forecast_error_range_excluding_cancellation": {
+      "min": -0.19901849092980498,
+      "max": 0.19436758893280595
+    },
+    "post_event_batch_difference_range": {
+      "min": -0.26063775248641347,
+      "max": 0.19436758893280595
+    },
+    "total_forecast_by_release_slot": {
+      "0": 9271.660000000024,
+      "2": 10796.900000000043,
+      "4": 17992.31000000003
+    },
+    "total_actual_by_release_slot": {
+      "0": 9191.460000000045,
+      "2": 10642.210000000061,
+      "4": 17534.080000000115
+    },
+    "ordinary_slot_load_ratio_range": {
+      "min": 0.7014999999999996,
+      "max": 0.8497499999999997
+    },
+    "peak_slot_load_ratio_range": {
+      "min": 0.9003888888888887,
+      "max": 1.0997222222222223
+    }
+  },
+  "event_tons": {
+    "urgent_cancel": {
+      "min": 5.09,
+      "mean": 9.5904,
+      "max": 14.2
+    },
+    "urgent_insert": {
+      "min": 5.6,
+      "mean": 10.2436,
+      "max": 14.97
+    }
+  },
+  "approved_fixed_assumptions": {
+    "balanced_change_penalty_ratio": 0.1,
+    "main_network_topology": [
+      [
+        "A",
+        "B",
+        1
+      ],
+      [
+        "A",
+        "C",
+        2
+      ],
+      [
+        "A",
+        "D",
+        2
+      ],
+      [
+        "B",
+        "C",
+        1
+      ],
+      [
+        "B",
+        "E",
+        2
+      ],
+      [
+        "C",
+        "D",
+        1
+      ],
+      [
+        "C",
+        "F",
+        2
+      ],
+      [
+        "D",
+        "G",
+        2
+      ],
+      [
+        "E",
+        "F",
+        1
+      ],
+      [
+        "E",
+        "H",
+        2
+      ],
+      [
+        "F",
+        "G",
+        1
+      ],
+      [
+        "G",
+        "H",
+        1
+      ]
+    ]
+  }
+}

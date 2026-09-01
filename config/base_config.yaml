@@ -1,0 +1,122 @@
+schema_version: 5
+status: approved_revised_v5
+model_protocol_version: 6
+result_schema_version: 6
+master_seed: 20260831
+
+time:
+  slot_hours: 3
+  rolling_interval_hours: 6
+  rolling_interval_slots: 2
+  planning_slots: 16
+  regular_arrival_slots: [0, 2, 4]
+  observation_slots: 24
+  slots_per_day: 8
+
+network:
+  main_nodes: 8
+  main_node_ids: [A, B, C, D, E, F, G, H]
+  undirected_pairs:
+    - [A, B, 1]
+    - [A, C, 2]
+    - [A, D, 2]
+    - [B, C, 1]
+    - [B, E, 2]
+    - [C, D, 1]
+    - [C, F, 2]
+    - [D, G, 2]
+    - [E, F, 1]
+    - [E, H, 2]
+    - [F, G, 1]
+    - [G, H, 1]
+  max_string_stops: 1
+  travel_slot_multiplier: 2
+
+vehicle:
+  types: 1
+  capacity_equivalent_tons: 20.0
+  initial_count_range: [2, 6]
+  breakdown_count: 1
+  breakdown_persists_to_end: true
+
+node:
+  handling_capacity_range: [20.0, 50.0]
+  storage_capacity_policy: sufficient_nonbinding
+  # Retained only so the existing frozen JSON schema can still be audited/regenerated.
+  # The optimizer and validator do not impose this legacy field as a capacity limit.
+  storage_capacity_range: [30.0, 80.0]
+  external_vehicle_limit_range: [0, 2]
+
+products:
+  urgent:
+    share: 0.20
+    deadline_slots: 4
+    max_transfers: 1
+    allow_overnight_hold: true
+    minimum_on_time_rate: 0.98
+    delay_cost_per_ton_slot: 30.0
+    service_shortfall_penalty_per_ton: 1000.0
+  standard:
+    share: 0.50
+    deadline_slots: 8
+    max_transfers: 2
+    allow_overnight_hold: true
+    minimum_on_time_rate: 0.95
+    delay_cost_per_ton_slot: 15.0
+    service_shortfall_penalty_per_ton: 500.0
+  economy:
+    share: 0.30
+    deadline_slots: 16
+    max_transfers: 2
+    allow_overnight_hold: true
+    minimum_on_time_rate: 0.90
+    delay_cost_per_ton_slot: 7.5
+    service_shortfall_penalty_per_ton: 250.0
+
+demand:
+  batch_total_error_range: [-0.20, 0.20]
+  minimum_material_future_error: 0.10
+  od_product_share_perturbation: 0.10
+  ordinary_load_ratio_range: [0.70, 0.85]
+  peak_load_ratio_range: [0.90, 1.10]
+  urgent_insert_tons_range: [5.0, 15.0]
+  urgent_cancel_tons_range: [5.0, 15.0]
+
+events:
+  urgent_insert_slots: [5, 7]
+  urgent_cancel_slots: [1, 3]
+  vehicle_breakdown_slots: [1, 3, 5, 7]
+  max_discrete_events_per_case: 1
+
+schedule:
+  trips_per_directed_edge_per_day_range: [1, 2]
+  repeat_daily_through_observation: true
+
+cost:
+  normal_own_per_travel_slot: 50.0
+  added_own_per_travel_slot: 60.0
+  outsourced_per_travel_slot: 90.0
+  handling_per_ton_operation: 2.0
+  transfer_extra_per_ton: 5.0
+  inventory_holding_per_ton_slot: 2.5
+  balanced_change_penalty_ratio: 0.10
+  trip_change_weight: 0.50
+  cargo_change_weight: 0.50
+
+datasets:
+  verification_cases: 4
+  validation_cases_per_category: 20
+  test_cases_per_category: 5
+  active_test_cases_per_category: 3
+  active_test_index: data/frozen/active_test_v6_12.json
+  categories: [normal, urgent_insert, urgent_cancel, vehicle_breakdown]
+
+solver:
+  target_mip_gap: 0.05
+  formal_time_limit_seconds: 300
+  supplemental_time_limit_seconds: 300
+  verification_time_limit_seconds: null
+  random_seed: 20260831
+  threads_per_worker: 3
+  parallel_workers: 6
+  recursive_infeasibility_policy: soften_service_level_and_preserve_physical_constraints

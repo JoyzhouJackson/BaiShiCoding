@@ -1,0 +1,5079 @@
+{
+  "schema_version": 5,
+  "case_id": "validation_urgent_insert_020",
+  "split": "validation",
+  "category": "urgent_insert",
+  "seed": 3422330120,
+  "nodes": [
+    {
+      "id": "A",
+      "handling_capacity": [
+        25.0,
+        25.09,
+        25.06,
+        26.52,
+        25.13,
+        27.42,
+        24.81,
+        25.37,
+        25.22,
+        25.35,
+        22.6,
+        25.39,
+        25.47,
+        23.8,
+        24.2,
+        23.87,
+        26.34,
+        25.27,
+        22.64,
+        26.2,
+        27.5,
+        24.95,
+        26.03,
+        22.7
+      ],
+      "storage_capacity": 33.0,
+      "initial_own_vehicles": 2,
+      "external_vehicle_limit": [
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "B",
+      "handling_capacity": [
+        41.0,
+        39.14,
+        43.49,
+        39.63,
+        43.83,
+        42.14,
+        37.7,
+        40.44,
+        42.93,
+        40.9,
+        42.17,
+        41.02,
+        40.64,
+        41.54,
+        41.88,
+        38.42,
+        38.22,
+        38.52,
+        42.63,
+        43.09,
+        36.9,
+        37.1,
+        37.81,
+        39.7
+      ],
+      "storage_capacity": 67.0,
+      "initial_own_vehicles": 2,
+      "external_vehicle_limit": [
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "C",
+      "handling_capacity": [
+        22.99,
+        22.93,
+        24.32,
+        21.41,
+        23.43,
+        23.42,
+        22.11,
+        21.34,
+        24.65,
+        21.06,
+        23.1,
+        23.04,
+        24.72,
+        23.96,
+        24.08,
+        21.06,
+        21.53,
+        21.75,
+        24.1,
+        22.45,
+        22.29,
+        23.46,
+        20.72,
+        21.4
+      ],
+      "storage_capacity": 68.0,
+      "initial_own_vehicles": 5,
+      "external_vehicle_limit": [
+        0,
+        2,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "D",
+      "handling_capacity": [
+        34.34,
+        37.36,
+        33.45,
+        38.1,
+        36.49,
+        36.96,
+        34.2,
+        37.16,
+        35.4,
+        39.44,
+        40.53,
+        38.4,
+        37.35,
+        39.58,
+        38.78,
+        39.78,
+        40.26,
+        35.64,
+        35.98,
+        33.37,
+        37.47,
+        39.49,
+        38.59,
+        34.59
+      ],
+      "storage_capacity": 78.0,
+      "initial_own_vehicles": 4,
+      "external_vehicle_limit": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "E",
+      "handling_capacity": [
+        32.06,
+        31.99,
+        28.21,
+        31.06,
+        31.94,
+        31.47,
+        30.0,
+        27.66,
+        32.61,
+        29.55,
+        27.28,
+        31.2,
+        31.52,
+        30.33,
+        29.36,
+        31.51,
+        29.1,
+        32.64,
+        28.77,
+        31.84,
+        32.37,
+        28.22,
+        27.74,
+        31.21
+      ],
+      "storage_capacity": 77.0,
+      "initial_own_vehicles": 3,
+      "external_vehicle_limit": [
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "F",
+      "handling_capacity": [
+        25.47,
+        25.95,
+        24.88,
+        23.25,
+        23.32,
+        24.07,
+        22.51,
+        26.0,
+        25.96,
+        23.76,
+        22.07,
+        23.48,
+        24.35,
+        21.74,
+        22.76,
+        24.33,
+        23.66,
+        23.1,
+        25.46,
+        23.24,
+        26.01,
+        25.83,
+        24.43,
+        23.45
+      ],
+      "storage_capacity": 33.0,
+      "initial_own_vehicles": 3,
+      "external_vehicle_limit": [
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        2,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "G",
+      "handling_capacity": [
+        29.22,
+        32.8,
+        30.28,
+        30.26,
+        27.03,
+        28.47,
+        29.83,
+        27.56,
+        28.74,
+        28.9,
+        31.23,
+        29.0,
+        31.73,
+        30.26,
+        28.38,
+        31.79,
+        30.11,
+        30.69,
+        27.8,
+        29.97,
+        32.01,
+        31.86,
+        32.47,
+        28.05
+      ],
+      "storage_capacity": 32.0,
+      "initial_own_vehicles": 4,
+      "external_vehicle_limit": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "H",
+      "handling_capacity": [
+        25.08,
+        24.19,
+        26.69,
+        26.69,
+        28.19,
+        26.14,
+        23.77,
+        25.72,
+        28.09,
+        28.52,
+        25.47,
+        24.52,
+        27.06,
+        27.08,
+        28.16,
+        27.5,
+        26.94,
+        23.85,
+        26.78,
+        25.55,
+        25.14,
+        26.37,
+        25.78,
+        24.54
+      ],
+      "storage_capacity": 66.0,
+      "initial_own_vehicles": 3,
+      "external_vehicle_limit": [
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        2,
+        0,
+        2,
+        0,
+        2,
+        0,
+        0
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "A_B",
+      "origin": "A",
+      "destination": "B",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "B_A",
+      "origin": "B",
+      "destination": "A",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "A_C",
+      "origin": "A",
+      "destination": "C",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "C_A",
+      "origin": "C",
+      "destination": "A",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "A_D",
+      "origin": "A",
+      "destination": "D",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "D_A",
+      "origin": "D",
+      "destination": "A",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "B_C",
+      "origin": "B",
+      "destination": "C",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "C_B",
+      "origin": "C",
+      "destination": "B",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "B_E",
+      "origin": "B",
+      "destination": "E",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "E_B",
+      "origin": "E",
+      "destination": "B",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "C_D",
+      "origin": "C",
+      "destination": "D",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "D_C",
+      "origin": "D",
+      "destination": "C",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "C_F",
+      "origin": "C",
+      "destination": "F",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "F_C",
+      "origin": "F",
+      "destination": "C",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "D_G",
+      "origin": "D",
+      "destination": "G",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "G_D",
+      "origin": "G",
+      "destination": "D",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "E_F",
+      "origin": "E",
+      "destination": "F",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "F_E",
+      "origin": "F",
+      "destination": "E",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "E_H",
+      "origin": "E",
+      "destination": "H",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "H_E",
+      "origin": "H",
+      "destination": "E",
+      "travel_slots": 4,
+      "normal_cost": 200.0,
+      "added_cost": 240.0,
+      "outsourced_cost": 360.0
+    },
+    {
+      "id": "F_G",
+      "origin": "F",
+      "destination": "G",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "G_F",
+      "origin": "G",
+      "destination": "F",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "G_H",
+      "origin": "G",
+      "destination": "H",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    },
+    {
+      "id": "H_G",
+      "origin": "H",
+      "destination": "G",
+      "travel_slots": 2,
+      "normal_cost": 100.0,
+      "added_cost": 120.0,
+      "outsourced_cost": 180.0
+    }
+  ],
+  "scheduled_trips": [
+    {
+      "id": "SCH_A_B_D1_1",
+      "edge_id": "A_B",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_A_B_D1_2",
+      "edge_id": "A_B",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_A_B_D2_1",
+      "edge_id": "A_B",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_A_B_D2_2",
+      "edge_id": "A_B",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_A_B_D3_1",
+      "edge_id": "A_B",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_A_B_D3_2",
+      "edge_id": "A_B",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_B_A_D1_1",
+      "edge_id": "B_A",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_B_A_D2_1",
+      "edge_id": "B_A",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_B_A_D3_1",
+      "edge_id": "B_A",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_A_C_D1_1",
+      "edge_id": "A_C",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_A_C_D1_2",
+      "edge_id": "A_C",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_A_C_D2_1",
+      "edge_id": "A_C",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_A_C_D2_2",
+      "edge_id": "A_C",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_A_C_D3_1",
+      "edge_id": "A_C",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_A_C_D3_2",
+      "edge_id": "A_C",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_C_A_D1_1",
+      "edge_id": "C_A",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_C_A_D2_1",
+      "edge_id": "C_A",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_C_A_D3_1",
+      "edge_id": "C_A",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_A_D_D1_1",
+      "edge_id": "A_D",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_A_D_D2_1",
+      "edge_id": "A_D",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_A_D_D3_1",
+      "edge_id": "A_D",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_D_A_D1_1",
+      "edge_id": "D_A",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_D_A_D1_2",
+      "edge_id": "D_A",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_D_A_D2_1",
+      "edge_id": "D_A",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_D_A_D2_2",
+      "edge_id": "D_A",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_D_A_D3_1",
+      "edge_id": "D_A",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_D_A_D3_2",
+      "edge_id": "D_A",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_B_C_D1_1",
+      "edge_id": "B_C",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_B_C_D2_1",
+      "edge_id": "B_C",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_B_C_D3_1",
+      "edge_id": "B_C",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_C_B_D1_1",
+      "edge_id": "C_B",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_C_B_D2_1",
+      "edge_id": "C_B",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_C_B_D3_1",
+      "edge_id": "C_B",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_B_E_D1_1",
+      "edge_id": "B_E",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_B_E_D1_2",
+      "edge_id": "B_E",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_B_E_D2_1",
+      "edge_id": "B_E",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_B_E_D2_2",
+      "edge_id": "B_E",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_B_E_D3_1",
+      "edge_id": "B_E",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_B_E_D3_2",
+      "edge_id": "B_E",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_E_B_D1_1",
+      "edge_id": "E_B",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_E_B_D1_2",
+      "edge_id": "E_B",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_E_B_D2_1",
+      "edge_id": "E_B",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_E_B_D2_2",
+      "edge_id": "E_B",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_E_B_D3_1",
+      "edge_id": "E_B",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_E_B_D3_2",
+      "edge_id": "E_B",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_C_D_D1_1",
+      "edge_id": "C_D",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_C_D_D1_2",
+      "edge_id": "C_D",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_C_D_D2_1",
+      "edge_id": "C_D",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_C_D_D2_2",
+      "edge_id": "C_D",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_C_D_D3_1",
+      "edge_id": "C_D",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_C_D_D3_2",
+      "edge_id": "C_D",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_D_C_D1_1",
+      "edge_id": "D_C",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_D_C_D2_1",
+      "edge_id": "D_C",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_D_C_D3_1",
+      "edge_id": "D_C",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_C_F_D1_1",
+      "edge_id": "C_F",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_C_F_D2_1",
+      "edge_id": "C_F",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_C_F_D3_1",
+      "edge_id": "C_F",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_F_C_D1_1",
+      "edge_id": "F_C",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_F_C_D2_1",
+      "edge_id": "F_C",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_F_C_D3_1",
+      "edge_id": "F_C",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_D_G_D1_1",
+      "edge_id": "D_G",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_D_G_D2_1",
+      "edge_id": "D_G",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_D_G_D3_1",
+      "edge_id": "D_G",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_G_D_D1_1",
+      "edge_id": "G_D",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_G_D_D2_1",
+      "edge_id": "G_D",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_G_D_D3_1",
+      "edge_id": "G_D",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_E_F_D1_1",
+      "edge_id": "E_F",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_E_F_D2_1",
+      "edge_id": "E_F",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_E_F_D3_1",
+      "edge_id": "E_F",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_F_E_D1_1",
+      "edge_id": "F_E",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_F_E_D1_2",
+      "edge_id": "F_E",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_F_E_D2_1",
+      "edge_id": "F_E",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_F_E_D2_2",
+      "edge_id": "F_E",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_F_E_D3_1",
+      "edge_id": "F_E",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_F_E_D3_2",
+      "edge_id": "F_E",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_E_H_D1_1",
+      "edge_id": "E_H",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_E_H_D1_2",
+      "edge_id": "E_H",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_E_H_D2_1",
+      "edge_id": "E_H",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_E_H_D2_2",
+      "edge_id": "E_H",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_E_H_D3_1",
+      "edge_id": "E_H",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_E_H_D3_2",
+      "edge_id": "E_H",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_H_E_D1_1",
+      "edge_id": "H_E",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_H_E_D2_1",
+      "edge_id": "H_E",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_H_E_D3_1",
+      "edge_id": "H_E",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_F_G_D1_1",
+      "edge_id": "F_G",
+      "departure_slot": 0
+    },
+    {
+      "id": "SCH_F_G_D1_2",
+      "edge_id": "F_G",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_F_G_D2_1",
+      "edge_id": "F_G",
+      "departure_slot": 8
+    },
+    {
+      "id": "SCH_F_G_D2_2",
+      "edge_id": "F_G",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_F_G_D3_1",
+      "edge_id": "F_G",
+      "departure_slot": 16
+    },
+    {
+      "id": "SCH_F_G_D3_2",
+      "edge_id": "F_G",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_G_F_D1_1",
+      "edge_id": "G_F",
+      "departure_slot": 4
+    },
+    {
+      "id": "SCH_G_F_D1_2",
+      "edge_id": "G_F",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_G_F_D2_1",
+      "edge_id": "G_F",
+      "departure_slot": 12
+    },
+    {
+      "id": "SCH_G_F_D2_2",
+      "edge_id": "G_F",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_G_F_D3_1",
+      "edge_id": "G_F",
+      "departure_slot": 20
+    },
+    {
+      "id": "SCH_G_F_D3_2",
+      "edge_id": "G_F",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_G_H_D1_1",
+      "edge_id": "G_H",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_G_H_D2_1",
+      "edge_id": "G_H",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_G_H_D3_1",
+      "edge_id": "G_H",
+      "departure_slot": 22
+    },
+    {
+      "id": "SCH_H_G_D1_1",
+      "edge_id": "H_G",
+      "departure_slot": 2
+    },
+    {
+      "id": "SCH_H_G_D1_2",
+      "edge_id": "H_G",
+      "departure_slot": 6
+    },
+    {
+      "id": "SCH_H_G_D2_1",
+      "edge_id": "H_G",
+      "departure_slot": 10
+    },
+    {
+      "id": "SCH_H_G_D2_2",
+      "edge_id": "H_G",
+      "departure_slot": 14
+    },
+    {
+      "id": "SCH_H_G_D3_1",
+      "edge_id": "H_G",
+      "departure_slot": 18
+    },
+    {
+      "id": "SCH_H_G_D3_2",
+      "edge_id": "H_G",
+      "departure_slot": 22
+    }
+  ],
+  "demand": [
+    {
+      "id": "DEM_T0_A_B_urgent_001",
+      "origin": "A",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.36,
+      "actual_tons": 0.38
+    },
+    {
+      "id": "DEM_T0_A_C_urgent_002",
+      "origin": "A",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.53,
+      "actual_tons": 0.55
+    },
+    {
+      "id": "DEM_T0_A_D_urgent_003",
+      "origin": "A",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.25,
+      "actual_tons": 0.26
+    },
+    {
+      "id": "DEM_T0_B_A_urgent_004",
+      "origin": "B",
+      "destination": "A",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.36,
+      "actual_tons": 0.39
+    },
+    {
+      "id": "DEM_T0_B_C_urgent_005",
+      "origin": "B",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 3.21,
+      "actual_tons": 3.37
+    },
+    {
+      "id": "DEM_T0_B_D_urgent_006",
+      "origin": "B",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.45,
+      "actual_tons": 0.51
+    },
+    {
+      "id": "DEM_T0_B_E_urgent_007",
+      "origin": "B",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.45,
+      "actual_tons": 0.48
+    },
+    {
+      "id": "DEM_T0_C_A_urgent_008",
+      "origin": "C",
+      "destination": "A",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.5,
+      "actual_tons": 0.51
+    },
+    {
+      "id": "DEM_T0_C_B_urgent_009",
+      "origin": "C",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.48,
+      "actual_tons": 0.5
+    },
+    {
+      "id": "DEM_T0_C_D_urgent_010",
+      "origin": "C",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 1.42,
+      "actual_tons": 1.63
+    },
+    {
+      "id": "DEM_T0_C_F_urgent_011",
+      "origin": "C",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 1.47,
+      "actual_tons": 1.61
+    },
+    {
+      "id": "DEM_T0_D_A_urgent_012",
+      "origin": "D",
+      "destination": "A",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.24,
+      "actual_tons": 0.27
+    },
+    {
+      "id": "DEM_T0_D_B_urgent_013",
+      "origin": "D",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.25,
+      "actual_tons": 0.25
+    },
+    {
+      "id": "DEM_T0_D_C_urgent_014",
+      "origin": "D",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.61,
+      "actual_tons": 0.63
+    },
+    {
+      "id": "DEM_T0_D_G_urgent_015",
+      "origin": "D",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.12,
+      "actual_tons": 0.12
+    },
+    {
+      "id": "DEM_T0_E_B_urgent_016",
+      "origin": "E",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.11,
+      "actual_tons": 0.13
+    },
+    {
+      "id": "DEM_T0_E_F_urgent_017",
+      "origin": "E",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.42,
+      "actual_tons": 0.48
+    },
+    {
+      "id": "DEM_T0_E_G_urgent_018",
+      "origin": "E",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.47,
+      "actual_tons": 0.54
+    },
+    {
+      "id": "DEM_T0_E_H_urgent_019",
+      "origin": "E",
+      "destination": "H",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.59,
+      "actual_tons": 0.63
+    },
+    {
+      "id": "DEM_T0_F_C_urgent_020",
+      "origin": "F",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.47,
+      "actual_tons": 0.51
+    },
+    {
+      "id": "DEM_T0_F_E_urgent_021",
+      "origin": "F",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.48,
+      "actual_tons": 0.52
+    },
+    {
+      "id": "DEM_T0_F_G_urgent_022",
+      "origin": "F",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.37,
+      "actual_tons": 0.41
+    },
+    {
+      "id": "DEM_T0_F_H_urgent_023",
+      "origin": "F",
+      "destination": "H",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.4,
+      "actual_tons": 0.44
+    },
+    {
+      "id": "DEM_T0_G_D_urgent_024",
+      "origin": "G",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 1.46,
+      "actual_tons": 1.56
+    },
+    {
+      "id": "DEM_T0_G_E_urgent_025",
+      "origin": "G",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.44,
+      "actual_tons": 0.49
+    },
+    {
+      "id": "DEM_T0_G_F_urgent_026",
+      "origin": "G",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.8,
+      "actual_tons": 0.93
+    },
+    {
+      "id": "DEM_T0_G_H_urgent_027",
+      "origin": "G",
+      "destination": "H",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 1.49,
+      "actual_tons": 1.54
+    },
+    {
+      "id": "DEM_T0_H_E_urgent_028",
+      "origin": "H",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.14,
+      "actual_tons": 0.15
+    },
+    {
+      "id": "DEM_T0_H_F_urgent_029",
+      "origin": "H",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.27,
+      "actual_tons": 0.28
+    },
+    {
+      "id": "DEM_T0_H_G_urgent_030",
+      "origin": "H",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 0,
+      "forecast_tons": 0.75,
+      "actual_tons": 0.86
+    },
+    {
+      "id": "DEM_T0_A_B_standard_031",
+      "origin": "A",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.54,
+      "actual_tons": 0.56
+    },
+    {
+      "id": "DEM_T0_A_C_standard_032",
+      "origin": "A",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.84,
+      "actual_tons": 0.84
+    },
+    {
+      "id": "DEM_T0_A_D_standard_033",
+      "origin": "A",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.57,
+      "actual_tons": 0.64
+    },
+    {
+      "id": "DEM_T0_A_E_standard_034",
+      "origin": "A",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 1.0,
+      "actual_tons": 1.1
+    },
+    {
+      "id": "DEM_T0_A_F_standard_035",
+      "origin": "A",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.71,
+      "actual_tons": 0.79
+    },
+    {
+      "id": "DEM_T0_A_G_standard_036",
+      "origin": "A",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.72,
+      "actual_tons": 0.8
+    },
+    {
+      "id": "DEM_T0_A_H_standard_037",
+      "origin": "A",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.06,
+      "actual_tons": 0.06
+    },
+    {
+      "id": "DEM_T0_B_A_standard_038",
+      "origin": "B",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.55,
+      "actual_tons": 0.55
+    },
+    {
+      "id": "DEM_T0_B_C_standard_039",
+      "origin": "B",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 5.87,
+      "actual_tons": 6.08
+    },
+    {
+      "id": "DEM_T0_B_D_standard_040",
+      "origin": "B",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.71,
+      "actual_tons": 0.78
+    },
+    {
+      "id": "DEM_T0_B_E_standard_041",
+      "origin": "B",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.68,
+      "actual_tons": 0.68
+    },
+    {
+      "id": "DEM_T0_B_F_standard_042",
+      "origin": "B",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.44,
+      "actual_tons": 0.47
+    },
+    {
+      "id": "DEM_T0_B_G_standard_043",
+      "origin": "B",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.27,
+      "actual_tons": 0.31
+    },
+    {
+      "id": "DEM_T0_B_H_standard_044",
+      "origin": "B",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 1.0,
+      "actual_tons": 1.14
+    },
+    {
+      "id": "DEM_T0_C_A_standard_045",
+      "origin": "C",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.97,
+      "actual_tons": 1.01
+    },
+    {
+      "id": "DEM_T0_C_B_standard_046",
+      "origin": "C",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.69,
+      "actual_tons": 0.78
+    },
+    {
+      "id": "DEM_T0_C_D_standard_047",
+      "origin": "C",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 3.02,
+      "actual_tons": 3.21
+    },
+    {
+      "id": "DEM_T0_C_E_standard_048",
+      "origin": "C",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.28,
+      "actual_tons": 0.27
+    },
+    {
+      "id": "DEM_T0_C_F_standard_049",
+      "origin": "C",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 2.53,
+      "actual_tons": 2.9
+    },
+    {
+      "id": "DEM_T0_C_G_standard_050",
+      "origin": "C",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.47,
+      "actual_tons": 0.51
+    },
+    {
+      "id": "DEM_T0_C_H_standard_051",
+      "origin": "C",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.42,
+      "actual_tons": 0.44
+    },
+    {
+      "id": "DEM_T0_D_A_standard_052",
+      "origin": "D",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.48,
+      "actual_tons": 0.53
+    },
+    {
+      "id": "DEM_T0_D_B_standard_053",
+      "origin": "D",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.47,
+      "actual_tons": 0.52
+    },
+    {
+      "id": "DEM_T0_D_C_standard_054",
+      "origin": "D",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 1.27,
+      "actual_tons": 1.32
+    },
+    {
+      "id": "DEM_T0_D_E_standard_055",
+      "origin": "D",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.22,
+      "actual_tons": 0.24
+    },
+    {
+      "id": "DEM_T0_D_F_standard_056",
+      "origin": "D",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.36,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T0_D_G_standard_057",
+      "origin": "D",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.21,
+      "actual_tons": 0.21
+    },
+    {
+      "id": "DEM_T0_D_H_standard_058",
+      "origin": "D",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 1.49,
+      "actual_tons": 1.58
+    },
+    {
+      "id": "DEM_T0_E_A_standard_059",
+      "origin": "E",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.83,
+      "actual_tons": 0.87
+    },
+    {
+      "id": "DEM_T0_E_B_standard_060",
+      "origin": "E",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.19,
+      "actual_tons": 0.2
+    },
+    {
+      "id": "DEM_T0_E_C_standard_061",
+      "origin": "E",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.4,
+      "actual_tons": 0.46
+    },
+    {
+      "id": "DEM_T0_E_D_standard_062",
+      "origin": "E",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.18,
+      "actual_tons": 0.19
+    },
+    {
+      "id": "DEM_T0_E_F_standard_063",
+      "origin": "E",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.89,
+      "actual_tons": 0.87
+    },
+    {
+      "id": "DEM_T0_E_G_standard_064",
+      "origin": "E",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.92,
+      "actual_tons": 1.05
+    },
+    {
+      "id": "DEM_T0_E_H_standard_065",
+      "origin": "E",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 1.27,
+      "actual_tons": 1.49
+    },
+    {
+      "id": "DEM_T0_F_A_standard_066",
+      "origin": "F",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.23,
+      "actual_tons": 0.25
+    },
+    {
+      "id": "DEM_T0_F_B_standard_067",
+      "origin": "F",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.0,
+      "actual_tons": 0.0
+    },
+    {
+      "id": "DEM_T0_F_C_standard_068",
+      "origin": "F",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.89,
+      "actual_tons": 0.86
+    },
+    {
+      "id": "DEM_T0_F_D_standard_069",
+      "origin": "F",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.12,
+      "actual_tons": 0.13
+    },
+    {
+      "id": "DEM_T0_F_E_standard_070",
+      "origin": "F",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.89,
+      "actual_tons": 0.97
+    },
+    {
+      "id": "DEM_T0_F_G_standard_071",
+      "origin": "F",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.77,
+      "actual_tons": 0.75
+    },
+    {
+      "id": "DEM_T0_F_H_standard_072",
+      "origin": "F",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.63,
+      "actual_tons": 0.73
+    },
+    {
+      "id": "DEM_T0_G_A_standard_073",
+      "origin": "G",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.68,
+      "actual_tons": 0.79
+    },
+    {
+      "id": "DEM_T0_G_B_standard_074",
+      "origin": "G",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.24,
+      "actual_tons": 0.25
+    },
+    {
+      "id": "DEM_T0_G_C_standard_075",
+      "origin": "G",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.38,
+      "actual_tons": 0.44
+    },
+    {
+      "id": "DEM_T0_G_D_standard_076",
+      "origin": "G",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 2.6,
+      "actual_tons": 2.7
+    },
+    {
+      "id": "DEM_T0_G_E_standard_077",
+      "origin": "G",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.81,
+      "actual_tons": 0.94
+    },
+    {
+      "id": "DEM_T0_G_F_standard_078",
+      "origin": "G",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 1.37,
+      "actual_tons": 1.47
+    },
+    {
+      "id": "DEM_T0_G_H_standard_079",
+      "origin": "G",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 3.25,
+      "actual_tons": 3.74
+    },
+    {
+      "id": "DEM_T0_H_A_standard_080",
+      "origin": "H",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.48,
+      "actual_tons": 0.52
+    },
+    {
+      "id": "DEM_T0_H_B_standard_081",
+      "origin": "H",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.61,
+      "actual_tons": 0.72
+    },
+    {
+      "id": "DEM_T0_H_C_standard_082",
+      "origin": "H",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.47,
+      "actual_tons": 0.48
+    },
+    {
+      "id": "DEM_T0_H_D_standard_083",
+      "origin": "H",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.51,
+      "actual_tons": 0.55
+    },
+    {
+      "id": "DEM_T0_H_E_standard_084",
+      "origin": "H",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.25,
+      "actual_tons": 0.25
+    },
+    {
+      "id": "DEM_T0_H_F_standard_085",
+      "origin": "H",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 0.56,
+      "actual_tons": 0.66
+    },
+    {
+      "id": "DEM_T0_H_G_standard_086",
+      "origin": "H",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 0,
+      "forecast_tons": 1.15,
+      "actual_tons": 1.2
+    },
+    {
+      "id": "DEM_T0_A_B_economy_087",
+      "origin": "A",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.41,
+      "actual_tons": 0.41
+    },
+    {
+      "id": "DEM_T0_A_C_economy_088",
+      "origin": "A",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.55,
+      "actual_tons": 0.55
+    },
+    {
+      "id": "DEM_T0_A_D_economy_089",
+      "origin": "A",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.28,
+      "actual_tons": 0.28
+    },
+    {
+      "id": "DEM_T0_A_E_economy_090",
+      "origin": "A",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.66,
+      "actual_tons": 0.71
+    },
+    {
+      "id": "DEM_T0_A_F_economy_091",
+      "origin": "A",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.46,
+      "actual_tons": 0.49
+    },
+    {
+      "id": "DEM_T0_A_G_economy_092",
+      "origin": "A",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.44,
+      "actual_tons": 0.44
+    },
+    {
+      "id": "DEM_T0_A_H_economy_093",
+      "origin": "A",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.03,
+      "actual_tons": 0.04
+    },
+    {
+      "id": "DEM_T0_B_A_economy_094",
+      "origin": "B",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.34,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T0_B_C_economy_095",
+      "origin": "B",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 3.16,
+      "actual_tons": 3.19
+    },
+    {
+      "id": "DEM_T0_B_D_economy_096",
+      "origin": "B",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.39,
+      "actual_tons": 0.42
+    },
+    {
+      "id": "DEM_T0_B_E_economy_097",
+      "origin": "B",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.4,
+      "actual_tons": 0.47
+    },
+    {
+      "id": "DEM_T0_B_F_economy_098",
+      "origin": "B",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.26,
+      "actual_tons": 0.28
+    },
+    {
+      "id": "DEM_T0_B_G_economy_099",
+      "origin": "B",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.17,
+      "actual_tons": 0.18
+    },
+    {
+      "id": "DEM_T0_B_H_economy_100",
+      "origin": "B",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.49,
+      "actual_tons": 0.55
+    },
+    {
+      "id": "DEM_T0_C_A_economy_101",
+      "origin": "C",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.68,
+      "actual_tons": 0.68
+    },
+    {
+      "id": "DEM_T0_C_B_economy_102",
+      "origin": "C",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.46,
+      "actual_tons": 0.53
+    },
+    {
+      "id": "DEM_T0_C_D_economy_103",
+      "origin": "C",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 1.58,
+      "actual_tons": 1.59
+    },
+    {
+      "id": "DEM_T0_C_E_economy_104",
+      "origin": "C",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.21,
+      "actual_tons": 0.25
+    },
+    {
+      "id": "DEM_T0_C_F_economy_105",
+      "origin": "C",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 1.55,
+      "actual_tons": 1.51
+    },
+    {
+      "id": "DEM_T0_C_G_economy_106",
+      "origin": "C",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.32,
+      "actual_tons": 0.31
+    },
+    {
+      "id": "DEM_T0_C_H_economy_107",
+      "origin": "C",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.26,
+      "actual_tons": 0.27
+    },
+    {
+      "id": "DEM_T0_D_A_economy_108",
+      "origin": "D",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.27,
+      "actual_tons": 0.27
+    },
+    {
+      "id": "DEM_T0_D_B_economy_109",
+      "origin": "D",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.35,
+      "actual_tons": 0.36
+    },
+    {
+      "id": "DEM_T0_D_C_economy_110",
+      "origin": "D",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.77,
+      "actual_tons": 0.77
+    },
+    {
+      "id": "DEM_T0_D_E_economy_111",
+      "origin": "D",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.14,
+      "actual_tons": 0.15
+    },
+    {
+      "id": "DEM_T0_D_F_economy_112",
+      "origin": "D",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.18,
+      "actual_tons": 0.19
+    },
+    {
+      "id": "DEM_T0_D_G_economy_113",
+      "origin": "D",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.13,
+      "actual_tons": 0.15
+    },
+    {
+      "id": "DEM_T0_D_H_economy_114",
+      "origin": "D",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.87,
+      "actual_tons": 0.92
+    },
+    {
+      "id": "DEM_T0_E_A_economy_115",
+      "origin": "E",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.57,
+      "actual_tons": 0.61
+    },
+    {
+      "id": "DEM_T0_E_B_economy_116",
+      "origin": "E",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.14,
+      "actual_tons": 0.14
+    },
+    {
+      "id": "DEM_T0_E_C_economy_117",
+      "origin": "E",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.27,
+      "actual_tons": 0.32
+    },
+    {
+      "id": "DEM_T0_E_D_economy_118",
+      "origin": "E",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.12,
+      "actual_tons": 0.12
+    },
+    {
+      "id": "DEM_T0_E_F_economy_119",
+      "origin": "E",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.52,
+      "actual_tons": 0.5
+    },
+    {
+      "id": "DEM_T0_E_G_economy_120",
+      "origin": "E",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.59,
+      "actual_tons": 0.62
+    },
+    {
+      "id": "DEM_T0_E_H_economy_121",
+      "origin": "E",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.82,
+      "actual_tons": 0.96
+    },
+    {
+      "id": "DEM_T0_F_A_economy_122",
+      "origin": "F",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.11,
+      "actual_tons": 0.13
+    },
+    {
+      "id": "DEM_T0_F_B_economy_123",
+      "origin": "F",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.0,
+      "actual_tons": 0.0
+    },
+    {
+      "id": "DEM_T0_F_C_economy_124",
+      "origin": "F",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.55,
+      "actual_tons": 0.62
+    },
+    {
+      "id": "DEM_T0_F_D_economy_125",
+      "origin": "F",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.07,
+      "actual_tons": 0.07
+    },
+    {
+      "id": "DEM_T0_F_E_economy_126",
+      "origin": "F",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.61,
+      "actual_tons": 0.61
+    },
+    {
+      "id": "DEM_T0_F_G_economy_127",
+      "origin": "F",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.39,
+      "actual_tons": 0.38
+    },
+    {
+      "id": "DEM_T0_F_H_economy_128",
+      "origin": "F",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.4,
+      "actual_tons": 0.41
+    },
+    {
+      "id": "DEM_T0_G_A_economy_129",
+      "origin": "G",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.33,
+      "actual_tons": 0.39
+    },
+    {
+      "id": "DEM_T0_G_B_economy_130",
+      "origin": "G",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.15,
+      "actual_tons": 0.18
+    },
+    {
+      "id": "DEM_T0_G_C_economy_131",
+      "origin": "G",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.22,
+      "actual_tons": 0.25
+    },
+    {
+      "id": "DEM_T0_G_D_economy_132",
+      "origin": "G",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 1.66,
+      "actual_tons": 1.74
+    },
+    {
+      "id": "DEM_T0_G_E_economy_133",
+      "origin": "G",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.5,
+      "actual_tons": 0.59
+    },
+    {
+      "id": "DEM_T0_G_F_economy_134",
+      "origin": "G",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.71,
+      "actual_tons": 0.73
+    },
+    {
+      "id": "DEM_T0_G_H_economy_135",
+      "origin": "G",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 1.84,
+      "actual_tons": 2.05
+    },
+    {
+      "id": "DEM_T0_H_A_economy_136",
+      "origin": "H",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.38,
+      "actual_tons": 0.43
+    },
+    {
+      "id": "DEM_T0_H_B_economy_137",
+      "origin": "H",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.35,
+      "actual_tons": 0.41
+    },
+    {
+      "id": "DEM_T0_H_C_economy_138",
+      "origin": "H",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.34,
+      "actual_tons": 0.39
+    },
+    {
+      "id": "DEM_T0_H_D_economy_139",
+      "origin": "H",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.36,
+      "actual_tons": 0.4
+    },
+    {
+      "id": "DEM_T0_H_E_economy_140",
+      "origin": "H",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.17,
+      "actual_tons": 0.19
+    },
+    {
+      "id": "DEM_T0_H_F_economy_141",
+      "origin": "H",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.34,
+      "actual_tons": 0.34
+    },
+    {
+      "id": "DEM_T0_H_G_economy_142",
+      "origin": "H",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 0,
+      "forecast_tons": 0.73,
+      "actual_tons": 0.86
+    },
+    {
+      "id": "DEM_T2_A_B_urgent_001",
+      "origin": "A",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.31,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T2_A_C_urgent_002",
+      "origin": "A",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.52,
+      "actual_tons": 0.59
+    },
+    {
+      "id": "DEM_T2_A_D_urgent_003",
+      "origin": "A",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.28,
+      "actual_tons": 0.32
+    },
+    {
+      "id": "DEM_T2_B_A_urgent_004",
+      "origin": "B",
+      "destination": "A",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.32,
+      "actual_tons": 0.39
+    },
+    {
+      "id": "DEM_T2_B_C_urgent_005",
+      "origin": "B",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 3.39,
+      "actual_tons": 4.2
+    },
+    {
+      "id": "DEM_T2_B_D_urgent_006",
+      "origin": "B",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.37,
+      "actual_tons": 0.44
+    },
+    {
+      "id": "DEM_T2_B_E_urgent_007",
+      "origin": "B",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.41,
+      "actual_tons": 0.47
+    },
+    {
+      "id": "DEM_T2_C_A_urgent_008",
+      "origin": "C",
+      "destination": "A",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.63,
+      "actual_tons": 0.77
+    },
+    {
+      "id": "DEM_T2_C_B_urgent_009",
+      "origin": "C",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.44,
+      "actual_tons": 0.54
+    },
+    {
+      "id": "DEM_T2_C_D_urgent_010",
+      "origin": "C",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 1.73,
+      "actual_tons": 2.02
+    },
+    {
+      "id": "DEM_T2_C_F_urgent_011",
+      "origin": "C",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 1.44,
+      "actual_tons": 1.5
+    },
+    {
+      "id": "DEM_T2_D_A_urgent_012",
+      "origin": "D",
+      "destination": "A",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.27,
+      "actual_tons": 0.29
+    },
+    {
+      "id": "DEM_T2_D_B_urgent_013",
+      "origin": "D",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.29,
+      "actual_tons": 0.31
+    },
+    {
+      "id": "DEM_T2_D_C_urgent_014",
+      "origin": "D",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.64,
+      "actual_tons": 0.7
+    },
+    {
+      "id": "DEM_T2_D_G_urgent_015",
+      "origin": "D",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.13,
+      "actual_tons": 0.16
+    },
+    {
+      "id": "DEM_T2_E_B_urgent_016",
+      "origin": "E",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.12,
+      "actual_tons": 0.15
+    },
+    {
+      "id": "DEM_T2_E_F_urgent_017",
+      "origin": "E",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.5,
+      "actual_tons": 0.53
+    },
+    {
+      "id": "DEM_T2_E_G_urgent_018",
+      "origin": "E",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.45,
+      "actual_tons": 0.51
+    },
+    {
+      "id": "DEM_T2_E_H_urgent_019",
+      "origin": "E",
+      "destination": "H",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.78,
+      "actual_tons": 0.95
+    },
+    {
+      "id": "DEM_T2_F_C_urgent_020",
+      "origin": "F",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.41,
+      "actual_tons": 0.5
+    },
+    {
+      "id": "DEM_T2_F_E_urgent_021",
+      "origin": "F",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.55,
+      "actual_tons": 0.6
+    },
+    {
+      "id": "DEM_T2_F_G_urgent_022",
+      "origin": "F",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.41,
+      "actual_tons": 0.5
+    },
+    {
+      "id": "DEM_T2_F_H_urgent_023",
+      "origin": "F",
+      "destination": "H",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.45,
+      "actual_tons": 0.53
+    },
+    {
+      "id": "DEM_T2_G_D_urgent_024",
+      "origin": "G",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 1.27,
+      "actual_tons": 1.55
+    },
+    {
+      "id": "DEM_T2_G_E_urgent_025",
+      "origin": "G",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.5,
+      "actual_tons": 0.53
+    },
+    {
+      "id": "DEM_T2_G_F_urgent_026",
+      "origin": "G",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.81,
+      "actual_tons": 0.93
+    },
+    {
+      "id": "DEM_T2_G_H_urgent_027",
+      "origin": "G",
+      "destination": "H",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 1.88,
+      "actual_tons": 2.15
+    },
+    {
+      "id": "DEM_T2_H_E_urgent_028",
+      "origin": "H",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.13,
+      "actual_tons": 0.14
+    },
+    {
+      "id": "DEM_T2_H_F_urgent_029",
+      "origin": "H",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.25,
+      "actual_tons": 0.29
+    },
+    {
+      "id": "DEM_T2_H_G_urgent_030",
+      "origin": "H",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 2,
+      "forecast_tons": 0.8,
+      "actual_tons": 0.86
+    },
+    {
+      "id": "DEM_T2_A_B_standard_031",
+      "origin": "A",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.62,
+      "actual_tons": 0.73
+    },
+    {
+      "id": "DEM_T2_A_C_standard_032",
+      "origin": "A",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.86,
+      "actual_tons": 0.98
+    },
+    {
+      "id": "DEM_T2_A_D_standard_033",
+      "origin": "A",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.46,
+      "actual_tons": 0.48
+    },
+    {
+      "id": "DEM_T2_A_E_standard_034",
+      "origin": "A",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.04,
+      "actual_tons": 1.1
+    },
+    {
+      "id": "DEM_T2_A_F_standard_035",
+      "origin": "A",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.81,
+      "actual_tons": 0.91
+    },
+    {
+      "id": "DEM_T2_A_G_standard_036",
+      "origin": "A",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.74,
+      "actual_tons": 0.9
+    },
+    {
+      "id": "DEM_T2_A_H_standard_037",
+      "origin": "A",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.06,
+      "actual_tons": 0.06
+    },
+    {
+      "id": "DEM_T2_B_A_standard_038",
+      "origin": "B",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.66,
+      "actual_tons": 0.79
+    },
+    {
+      "id": "DEM_T2_B_C_standard_039",
+      "origin": "B",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 6.86,
+      "actual_tons": 8.16
+    },
+    {
+      "id": "DEM_T2_B_D_standard_040",
+      "origin": "B",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.84,
+      "actual_tons": 1.04
+    },
+    {
+      "id": "DEM_T2_B_E_standard_041",
+      "origin": "B",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.82,
+      "actual_tons": 1.0
+    },
+    {
+      "id": "DEM_T2_B_F_standard_042",
+      "origin": "B",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.46,
+      "actual_tons": 0.56
+    },
+    {
+      "id": "DEM_T2_B_G_standard_043",
+      "origin": "B",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.32,
+      "actual_tons": 0.38
+    },
+    {
+      "id": "DEM_T2_B_H_standard_044",
+      "origin": "B",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.1,
+      "actual_tons": 1.14
+    },
+    {
+      "id": "DEM_T2_C_A_standard_045",
+      "origin": "C",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.08,
+      "actual_tons": 1.21
+    },
+    {
+      "id": "DEM_T2_C_B_standard_046",
+      "origin": "C",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.89,
+      "actual_tons": 1.02
+    },
+    {
+      "id": "DEM_T2_C_D_standard_047",
+      "origin": "C",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 2.73,
+      "actual_tons": 2.85
+    },
+    {
+      "id": "DEM_T2_C_E_standard_048",
+      "origin": "C",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.37,
+      "actual_tons": 0.39
+    },
+    {
+      "id": "DEM_T2_C_F_standard_049",
+      "origin": "C",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 2.83,
+      "actual_tons": 3.32
+    },
+    {
+      "id": "DEM_T2_C_G_standard_050",
+      "origin": "C",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.45,
+      "actual_tons": 0.56
+    },
+    {
+      "id": "DEM_T2_C_H_standard_051",
+      "origin": "C",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.44,
+      "actual_tons": 0.47
+    },
+    {
+      "id": "DEM_T2_D_A_standard_052",
+      "origin": "D",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.46,
+      "actual_tons": 0.58
+    },
+    {
+      "id": "DEM_T2_D_B_standard_053",
+      "origin": "D",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.54,
+      "actual_tons": 0.6
+    },
+    {
+      "id": "DEM_T2_D_C_standard_054",
+      "origin": "D",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.49,
+      "actual_tons": 1.72
+    },
+    {
+      "id": "DEM_T2_D_E_standard_055",
+      "origin": "D",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.27,
+      "actual_tons": 0.34
+    },
+    {
+      "id": "DEM_T2_D_F_standard_056",
+      "origin": "D",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.32,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T2_D_G_standard_057",
+      "origin": "D",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.26,
+      "actual_tons": 0.28
+    },
+    {
+      "id": "DEM_T2_D_H_standard_058",
+      "origin": "D",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.55,
+      "actual_tons": 1.86
+    },
+    {
+      "id": "DEM_T2_E_A_standard_059",
+      "origin": "E",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.81,
+      "actual_tons": 0.85
+    },
+    {
+      "id": "DEM_T2_E_B_standard_060",
+      "origin": "E",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.21,
+      "actual_tons": 0.23
+    },
+    {
+      "id": "DEM_T2_E_C_standard_061",
+      "origin": "E",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.57,
+      "actual_tons": 0.59
+    },
+    {
+      "id": "DEM_T2_E_D_standard_062",
+      "origin": "E",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.18,
+      "actual_tons": 0.21
+    },
+    {
+      "id": "DEM_T2_E_F_standard_063",
+      "origin": "E",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.85,
+      "actual_tons": 0.98
+    },
+    {
+      "id": "DEM_T2_E_G_standard_064",
+      "origin": "E",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.09,
+      "actual_tons": 1.33
+    },
+    {
+      "id": "DEM_T2_E_H_standard_065",
+      "origin": "E",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.09,
+      "actual_tons": 1.31
+    },
+    {
+      "id": "DEM_T2_F_A_standard_066",
+      "origin": "F",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.23,
+      "actual_tons": 0.27
+    },
+    {
+      "id": "DEM_T2_F_B_standard_067",
+      "origin": "F",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.0,
+      "actual_tons": 0.0
+    },
+    {
+      "id": "DEM_T2_F_C_standard_068",
+      "origin": "F",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.83,
+      "actual_tons": 0.94
+    },
+    {
+      "id": "DEM_T2_F_D_standard_069",
+      "origin": "F",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.12,
+      "actual_tons": 0.14
+    },
+    {
+      "id": "DEM_T2_F_E_standard_070",
+      "origin": "F",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.03,
+      "actual_tons": 1.27
+    },
+    {
+      "id": "DEM_T2_F_G_standard_071",
+      "origin": "F",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.69,
+      "actual_tons": 0.76
+    },
+    {
+      "id": "DEM_T2_F_H_standard_072",
+      "origin": "F",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.76,
+      "actual_tons": 0.93
+    },
+    {
+      "id": "DEM_T2_G_A_standard_073",
+      "origin": "G",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.74,
+      "actual_tons": 0.9
+    },
+    {
+      "id": "DEM_T2_G_B_standard_074",
+      "origin": "G",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.24,
+      "actual_tons": 0.28
+    },
+    {
+      "id": "DEM_T2_G_C_standard_075",
+      "origin": "G",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.42,
+      "actual_tons": 0.52
+    },
+    {
+      "id": "DEM_T2_G_D_standard_076",
+      "origin": "G",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 2.21,
+      "actual_tons": 2.55
+    },
+    {
+      "id": "DEM_T2_G_E_standard_077",
+      "origin": "G",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.76,
+      "actual_tons": 0.8
+    },
+    {
+      "id": "DEM_T2_G_F_standard_078",
+      "origin": "G",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.16,
+      "actual_tons": 1.43
+    },
+    {
+      "id": "DEM_T2_G_H_standard_079",
+      "origin": "G",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 3.48,
+      "actual_tons": 4.27
+    },
+    {
+      "id": "DEM_T2_H_A_standard_080",
+      "origin": "H",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.55,
+      "actual_tons": 0.65
+    },
+    {
+      "id": "DEM_T2_H_B_standard_081",
+      "origin": "H",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.61,
+      "actual_tons": 0.75
+    },
+    {
+      "id": "DEM_T2_H_C_standard_082",
+      "origin": "H",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.55,
+      "actual_tons": 0.61
+    },
+    {
+      "id": "DEM_T2_H_D_standard_083",
+      "origin": "H",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.63,
+      "actual_tons": 0.69
+    },
+    {
+      "id": "DEM_T2_H_E_standard_084",
+      "origin": "H",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.32,
+      "actual_tons": 0.34
+    },
+    {
+      "id": "DEM_T2_H_F_standard_085",
+      "origin": "H",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 0.52,
+      "actual_tons": 0.57
+    },
+    {
+      "id": "DEM_T2_H_G_standard_086",
+      "origin": "H",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 2,
+      "forecast_tons": 1.23,
+      "actual_tons": 1.3
+    },
+    {
+      "id": "DEM_T2_A_B_economy_087",
+      "origin": "A",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.39,
+      "actual_tons": 0.41
+    },
+    {
+      "id": "DEM_T2_A_C_economy_088",
+      "origin": "A",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.53,
+      "actual_tons": 0.66
+    },
+    {
+      "id": "DEM_T2_A_D_economy_089",
+      "origin": "A",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.33,
+      "actual_tons": 0.4
+    },
+    {
+      "id": "DEM_T2_A_E_economy_090",
+      "origin": "A",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.67,
+      "actual_tons": 0.78
+    },
+    {
+      "id": "DEM_T2_A_F_economy_091",
+      "origin": "A",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.45,
+      "actual_tons": 0.53
+    },
+    {
+      "id": "DEM_T2_A_G_economy_092",
+      "origin": "A",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.41,
+      "actual_tons": 0.47
+    },
+    {
+      "id": "DEM_T2_A_H_economy_093",
+      "origin": "A",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.04,
+      "actual_tons": 0.05
+    },
+    {
+      "id": "DEM_T2_B_A_economy_094",
+      "origin": "B",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.38,
+      "actual_tons": 0.44
+    },
+    {
+      "id": "DEM_T2_B_C_economy_095",
+      "origin": "B",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 3.26,
+      "actual_tons": 3.79
+    },
+    {
+      "id": "DEM_T2_B_D_economy_096",
+      "origin": "B",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.54,
+      "actual_tons": 0.66
+    },
+    {
+      "id": "DEM_T2_B_E_economy_097",
+      "origin": "B",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.44,
+      "actual_tons": 0.54
+    },
+    {
+      "id": "DEM_T2_B_F_economy_098",
+      "origin": "B",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.29,
+      "actual_tons": 0.36
+    },
+    {
+      "id": "DEM_T2_B_G_economy_099",
+      "origin": "B",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.2,
+      "actual_tons": 0.21
+    },
+    {
+      "id": "DEM_T2_B_H_economy_100",
+      "origin": "B",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.67,
+      "actual_tons": 0.79
+    },
+    {
+      "id": "DEM_T2_C_A_economy_101",
+      "origin": "C",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.58,
+      "actual_tons": 0.68
+    },
+    {
+      "id": "DEM_T2_C_B_economy_102",
+      "origin": "C",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.52,
+      "actual_tons": 0.62
+    },
+    {
+      "id": "DEM_T2_C_D_economy_103",
+      "origin": "C",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 1.74,
+      "actual_tons": 2.09
+    },
+    {
+      "id": "DEM_T2_C_E_economy_104",
+      "origin": "C",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.22,
+      "actual_tons": 0.24
+    },
+    {
+      "id": "DEM_T2_C_F_economy_105",
+      "origin": "C",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 1.56,
+      "actual_tons": 1.75
+    },
+    {
+      "id": "DEM_T2_C_G_economy_106",
+      "origin": "C",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.3,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T2_C_H_economy_107",
+      "origin": "C",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.31,
+      "actual_tons": 0.32
+    },
+    {
+      "id": "DEM_T2_D_A_economy_108",
+      "origin": "D",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.31,
+      "actual_tons": 0.34
+    },
+    {
+      "id": "DEM_T2_D_B_economy_109",
+      "origin": "D",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.28,
+      "actual_tons": 0.35
+    },
+    {
+      "id": "DEM_T2_D_C_economy_110",
+      "origin": "D",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.76,
+      "actual_tons": 0.9
+    },
+    {
+      "id": "DEM_T2_D_E_economy_111",
+      "origin": "D",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.17,
+      "actual_tons": 0.18
+    },
+    {
+      "id": "DEM_T2_D_F_economy_112",
+      "origin": "D",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.19,
+      "actual_tons": 0.2
+    },
+    {
+      "id": "DEM_T2_D_G_economy_113",
+      "origin": "D",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.13,
+      "actual_tons": 0.16
+    },
+    {
+      "id": "DEM_T2_D_H_economy_114",
+      "origin": "D",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.9,
+      "actual_tons": 1.09
+    },
+    {
+      "id": "DEM_T2_E_A_economy_115",
+      "origin": "E",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.54,
+      "actual_tons": 0.58
+    },
+    {
+      "id": "DEM_T2_E_B_economy_116",
+      "origin": "E",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.16,
+      "actual_tons": 0.17
+    },
+    {
+      "id": "DEM_T2_E_C_economy_117",
+      "origin": "E",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.31,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T2_E_D_economy_118",
+      "origin": "E",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.14,
+      "actual_tons": 0.15
+    },
+    {
+      "id": "DEM_T2_E_F_economy_119",
+      "origin": "E",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.64,
+      "actual_tons": 0.75
+    },
+    {
+      "id": "DEM_T2_E_G_economy_120",
+      "origin": "E",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.56,
+      "actual_tons": 0.61
+    },
+    {
+      "id": "DEM_T2_E_H_economy_121",
+      "origin": "E",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.82,
+      "actual_tons": 1.01
+    },
+    {
+      "id": "DEM_T2_F_A_economy_122",
+      "origin": "F",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.13,
+      "actual_tons": 0.16
+    },
+    {
+      "id": "DEM_T2_F_B_economy_123",
+      "origin": "F",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.0,
+      "actual_tons": 0.0
+    },
+    {
+      "id": "DEM_T2_F_C_economy_124",
+      "origin": "F",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.6,
+      "actual_tons": 0.74
+    },
+    {
+      "id": "DEM_T2_F_D_economy_125",
+      "origin": "F",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.08,
+      "actual_tons": 0.1
+    },
+    {
+      "id": "DEM_T2_F_E_economy_126",
+      "origin": "F",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.58,
+      "actual_tons": 0.73
+    },
+    {
+      "id": "DEM_T2_F_G_economy_127",
+      "origin": "F",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.47,
+      "actual_tons": 0.56
+    },
+    {
+      "id": "DEM_T2_F_H_economy_128",
+      "origin": "F",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.5,
+      "actual_tons": 0.54
+    },
+    {
+      "id": "DEM_T2_G_A_economy_129",
+      "origin": "G",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.35,
+      "actual_tons": 0.44
+    },
+    {
+      "id": "DEM_T2_G_B_economy_130",
+      "origin": "G",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.14,
+      "actual_tons": 0.16
+    },
+    {
+      "id": "DEM_T2_G_C_economy_131",
+      "origin": "G",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.23,
+      "actual_tons": 0.25
+    },
+    {
+      "id": "DEM_T2_G_D_economy_132",
+      "origin": "G",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 1.61,
+      "actual_tons": 1.67
+    },
+    {
+      "id": "DEM_T2_G_E_economy_133",
+      "origin": "G",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.56,
+      "actual_tons": 0.64
+    },
+    {
+      "id": "DEM_T2_G_F_economy_134",
+      "origin": "G",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.72,
+      "actual_tons": 0.8
+    },
+    {
+      "id": "DEM_T2_G_H_economy_135",
+      "origin": "G",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 2.15,
+      "actual_tons": 2.61
+    },
+    {
+      "id": "DEM_T2_H_A_economy_136",
+      "origin": "H",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.4,
+      "actual_tons": 0.5
+    },
+    {
+      "id": "DEM_T2_H_B_economy_137",
+      "origin": "H",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.37,
+      "actual_tons": 0.46
+    },
+    {
+      "id": "DEM_T2_H_C_economy_138",
+      "origin": "H",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.33,
+      "actual_tons": 0.36
+    },
+    {
+      "id": "DEM_T2_H_D_economy_139",
+      "origin": "H",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.33,
+      "actual_tons": 0.4
+    },
+    {
+      "id": "DEM_T2_H_E_economy_140",
+      "origin": "H",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.2,
+      "actual_tons": 0.24
+    },
+    {
+      "id": "DEM_T2_H_F_economy_141",
+      "origin": "H",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.34,
+      "actual_tons": 0.42
+    },
+    {
+      "id": "DEM_T2_H_G_economy_142",
+      "origin": "H",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 2,
+      "forecast_tons": 0.89,
+      "actual_tons": 1.1
+    },
+    {
+      "id": "DEM_T4_A_B_urgent_001",
+      "origin": "A",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.62,
+      "actual_tons": 0.51
+    },
+    {
+      "id": "DEM_T4_A_C_urgent_002",
+      "origin": "A",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.84,
+      "actual_tons": 0.66
+    },
+    {
+      "id": "DEM_T4_A_D_urgent_003",
+      "origin": "A",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.55,
+      "actual_tons": 0.48
+    },
+    {
+      "id": "DEM_T4_B_A_urgent_004",
+      "origin": "B",
+      "destination": "A",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.58,
+      "actual_tons": 0.45
+    },
+    {
+      "id": "DEM_T4_B_C_urgent_005",
+      "origin": "B",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 6.01,
+      "actual_tons": 4.55
+    },
+    {
+      "id": "DEM_T4_B_D_urgent_006",
+      "origin": "B",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.73,
+      "actual_tons": 0.56
+    },
+    {
+      "id": "DEM_T4_B_E_urgent_007",
+      "origin": "B",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.87,
+      "actual_tons": 0.75
+    },
+    {
+      "id": "DEM_T4_C_A_urgent_008",
+      "origin": "C",
+      "destination": "A",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 1.16,
+      "actual_tons": 0.87
+    },
+    {
+      "id": "DEM_T4_C_B_urgent_009",
+      "origin": "C",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.74,
+      "actual_tons": 0.63
+    },
+    {
+      "id": "DEM_T4_C_D_urgent_010",
+      "origin": "C",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 3.14,
+      "actual_tons": 2.63
+    },
+    {
+      "id": "DEM_T4_C_F_urgent_011",
+      "origin": "C",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 2.17,
+      "actual_tons": 1.89
+    },
+    {
+      "id": "DEM_T4_D_A_urgent_012",
+      "origin": "D",
+      "destination": "A",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.5,
+      "actual_tons": 0.44
+    },
+    {
+      "id": "DEM_T4_D_B_urgent_013",
+      "origin": "D",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.5,
+      "actual_tons": 0.43
+    },
+    {
+      "id": "DEM_T4_D_C_urgent_014",
+      "origin": "D",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 1.14,
+      "actual_tons": 1.01
+    },
+    {
+      "id": "DEM_T4_D_G_urgent_015",
+      "origin": "D",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.25,
+      "actual_tons": 0.21
+    },
+    {
+      "id": "DEM_T4_E_B_urgent_016",
+      "origin": "E",
+      "destination": "B",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.24,
+      "actual_tons": 0.18
+    },
+    {
+      "id": "DEM_T4_E_F_urgent_017",
+      "origin": "E",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.93,
+      "actual_tons": 0.82
+    },
+    {
+      "id": "DEM_T4_E_G_urgent_018",
+      "origin": "E",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.81,
+      "actual_tons": 0.69
+    },
+    {
+      "id": "DEM_T4_E_H_urgent_019",
+      "origin": "E",
+      "destination": "H",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 1.29,
+      "actual_tons": 1.01
+    },
+    {
+      "id": "DEM_T4_F_C_urgent_020",
+      "origin": "F",
+      "destination": "C",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.95,
+      "actual_tons": 0.83
+    },
+    {
+      "id": "DEM_T4_F_E_urgent_021",
+      "origin": "F",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 1.04,
+      "actual_tons": 0.92
+    },
+    {
+      "id": "DEM_T4_F_G_urgent_022",
+      "origin": "F",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.65,
+      "actual_tons": 0.49
+    },
+    {
+      "id": "DEM_T4_F_H_urgent_023",
+      "origin": "F",
+      "destination": "H",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.69,
+      "actual_tons": 0.57
+    },
+    {
+      "id": "DEM_T4_G_D_urgent_024",
+      "origin": "G",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 2.27,
+      "actual_tons": 1.74
+    },
+    {
+      "id": "DEM_T4_G_E_urgent_025",
+      "origin": "G",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.79,
+      "actual_tons": 0.58
+    },
+    {
+      "id": "DEM_T4_G_F_urgent_026",
+      "origin": "G",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 1.25,
+      "actual_tons": 0.96
+    },
+    {
+      "id": "DEM_T4_G_H_urgent_027",
+      "origin": "G",
+      "destination": "H",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 3.33,
+      "actual_tons": 2.64
+    },
+    {
+      "id": "DEM_T4_H_E_urgent_028",
+      "origin": "H",
+      "destination": "E",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.24,
+      "actual_tons": 0.19
+    },
+    {
+      "id": "DEM_T4_H_F_urgent_029",
+      "origin": "H",
+      "destination": "F",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 0.5,
+      "actual_tons": 0.38
+    },
+    {
+      "id": "DEM_T4_H_G_urgent_030",
+      "origin": "H",
+      "destination": "G",
+      "product": "urgent",
+      "release_slot": 4,
+      "forecast_tons": 1.22,
+      "actual_tons": 1.02
+    },
+    {
+      "id": "DEM_T4_A_B_standard_031",
+      "origin": "A",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.14,
+      "actual_tons": 0.87
+    },
+    {
+      "id": "DEM_T4_A_C_standard_032",
+      "origin": "A",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.84,
+      "actual_tons": 1.35
+    },
+    {
+      "id": "DEM_T4_A_D_standard_033",
+      "origin": "A",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.98,
+      "actual_tons": 0.74
+    },
+    {
+      "id": "DEM_T4_A_E_standard_034",
+      "origin": "A",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.8,
+      "actual_tons": 1.49
+    },
+    {
+      "id": "DEM_T4_A_F_standard_035",
+      "origin": "A",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.36,
+      "actual_tons": 1.02
+    },
+    {
+      "id": "DEM_T4_A_G_standard_036",
+      "origin": "A",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.18,
+      "actual_tons": 0.99
+    },
+    {
+      "id": "DEM_T4_A_H_standard_037",
+      "origin": "A",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.11,
+      "actual_tons": 0.09
+    },
+    {
+      "id": "DEM_T4_B_A_standard_038",
+      "origin": "B",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.32,
+      "actual_tons": 1.0
+    },
+    {
+      "id": "DEM_T4_B_C_standard_039",
+      "origin": "B",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 11.06,
+      "actual_tons": 9.25
+    },
+    {
+      "id": "DEM_T4_B_D_standard_040",
+      "origin": "B",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.56,
+      "actual_tons": 1.39
+    },
+    {
+      "id": "DEM_T4_B_E_standard_041",
+      "origin": "B",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.49,
+      "actual_tons": 1.17
+    },
+    {
+      "id": "DEM_T4_B_F_standard_042",
+      "origin": "B",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.78,
+      "actual_tons": 0.61
+    },
+    {
+      "id": "DEM_T4_B_G_standard_043",
+      "origin": "B",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.55,
+      "actual_tons": 0.47
+    },
+    {
+      "id": "DEM_T4_B_H_standard_044",
+      "origin": "B",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.62,
+      "actual_tons": 1.25
+    },
+    {
+      "id": "DEM_T4_C_A_standard_045",
+      "origin": "C",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.81,
+      "actual_tons": 1.33
+    },
+    {
+      "id": "DEM_T4_C_B_standard_046",
+      "origin": "C",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.48,
+      "actual_tons": 1.3
+    },
+    {
+      "id": "DEM_T4_C_D_standard_047",
+      "origin": "C",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 4.69,
+      "actual_tons": 3.91
+    },
+    {
+      "id": "DEM_T4_C_E_standard_048",
+      "origin": "C",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.6,
+      "actual_tons": 0.51
+    },
+    {
+      "id": "DEM_T4_C_F_standard_049",
+      "origin": "C",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 5.08,
+      "actual_tons": 4.41
+    },
+    {
+      "id": "DEM_T4_C_G_standard_050",
+      "origin": "C",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.9,
+      "actual_tons": 0.81
+    },
+    {
+      "id": "DEM_T4_C_H_standard_051",
+      "origin": "C",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.89,
+      "actual_tons": 0.76
+    },
+    {
+      "id": "DEM_T4_D_A_standard_052",
+      "origin": "D",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.73,
+      "actual_tons": 0.65
+    },
+    {
+      "id": "DEM_T4_D_B_standard_053",
+      "origin": "D",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.85,
+      "actual_tons": 0.65
+    },
+    {
+      "id": "DEM_T4_D_C_standard_054",
+      "origin": "D",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 2.67,
+      "actual_tons": 2.29
+    },
+    {
+      "id": "DEM_T4_D_E_standard_055",
+      "origin": "D",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.43,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T4_D_F_standard_056",
+      "origin": "D",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.6,
+      "actual_tons": 0.51
+    },
+    {
+      "id": "DEM_T4_D_G_standard_057",
+      "origin": "D",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.37,
+      "actual_tons": 0.28
+    },
+    {
+      "id": "DEM_T4_D_H_standard_058",
+      "origin": "D",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 3.28,
+      "actual_tons": 2.81
+    },
+    {
+      "id": "DEM_T4_E_A_standard_059",
+      "origin": "E",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.37,
+      "actual_tons": 1.11
+    },
+    {
+      "id": "DEM_T4_E_B_standard_060",
+      "origin": "E",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.45,
+      "actual_tons": 0.34
+    },
+    {
+      "id": "DEM_T4_E_C_standard_061",
+      "origin": "E",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.93,
+      "actual_tons": 0.82
+    },
+    {
+      "id": "DEM_T4_E_D_standard_062",
+      "origin": "E",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.38,
+      "actual_tons": 0.34
+    },
+    {
+      "id": "DEM_T4_E_F_standard_063",
+      "origin": "E",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.73,
+      "actual_tons": 1.27
+    },
+    {
+      "id": "DEM_T4_E_G_standard_064",
+      "origin": "E",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.86,
+      "actual_tons": 1.39
+    },
+    {
+      "id": "DEM_T4_E_H_standard_065",
+      "origin": "E",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.95,
+      "actual_tons": 1.47
+    },
+    {
+      "id": "DEM_T4_F_A_standard_066",
+      "origin": "F",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.4,
+      "actual_tons": 0.32
+    },
+    {
+      "id": "DEM_T4_F_B_standard_067",
+      "origin": "F",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.01,
+      "actual_tons": 0.01
+    },
+    {
+      "id": "DEM_T4_F_C_standard_068",
+      "origin": "F",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.52,
+      "actual_tons": 1.13
+    },
+    {
+      "id": "DEM_T4_F_D_standard_069",
+      "origin": "F",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.24,
+      "actual_tons": 0.22
+    },
+    {
+      "id": "DEM_T4_F_E_standard_070",
+      "origin": "F",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.94,
+      "actual_tons": 1.61
+    },
+    {
+      "id": "DEM_T4_F_G_standard_071",
+      "origin": "F",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.46,
+      "actual_tons": 1.2
+    },
+    {
+      "id": "DEM_T4_F_H_standard_072",
+      "origin": "F",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.22,
+      "actual_tons": 1.05
+    },
+    {
+      "id": "DEM_T4_G_A_standard_073",
+      "origin": "G",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.21,
+      "actual_tons": 0.9
+    },
+    {
+      "id": "DEM_T4_G_B_standard_074",
+      "origin": "G",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.44,
+      "actual_tons": 0.32
+    },
+    {
+      "id": "DEM_T4_G_C_standard_075",
+      "origin": "G",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.89,
+      "actual_tons": 0.7
+    },
+    {
+      "id": "DEM_T4_G_D_standard_076",
+      "origin": "G",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 3.9,
+      "actual_tons": 3.01
+    },
+    {
+      "id": "DEM_T4_G_E_standard_077",
+      "origin": "G",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.35,
+      "actual_tons": 1.21
+    },
+    {
+      "id": "DEM_T4_G_F_standard_078",
+      "origin": "G",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 2.63,
+      "actual_tons": 2.17
+    },
+    {
+      "id": "DEM_T4_G_H_standard_079",
+      "origin": "G",
+      "destination": "H",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 4.84,
+      "actual_tons": 4.08
+    },
+    {
+      "id": "DEM_T4_H_A_standard_080",
+      "origin": "H",
+      "destination": "A",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.13,
+      "actual_tons": 0.98
+    },
+    {
+      "id": "DEM_T4_H_B_standard_081",
+      "origin": "H",
+      "destination": "B",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.12,
+      "actual_tons": 0.94
+    },
+    {
+      "id": "DEM_T4_H_C_standard_082",
+      "origin": "H",
+      "destination": "C",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.85,
+      "actual_tons": 0.7
+    },
+    {
+      "id": "DEM_T4_H_D_standard_083",
+      "origin": "H",
+      "destination": "D",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.26,
+      "actual_tons": 1.05
+    },
+    {
+      "id": "DEM_T4_H_E_standard_084",
+      "origin": "H",
+      "destination": "E",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 0.47,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T4_H_F_standard_085",
+      "origin": "H",
+      "destination": "F",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 1.07,
+      "actual_tons": 0.9
+    },
+    {
+      "id": "DEM_T4_H_G_standard_086",
+      "origin": "H",
+      "destination": "G",
+      "product": "standard",
+      "release_slot": 4,
+      "forecast_tons": 2.22,
+      "actual_tons": 1.64
+    },
+    {
+      "id": "DEM_T4_A_B_economy_087",
+      "origin": "A",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.72,
+      "actual_tons": 0.55
+    },
+    {
+      "id": "DEM_T4_A_C_economy_088",
+      "origin": "A",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.94,
+      "actual_tons": 0.71
+    },
+    {
+      "id": "DEM_T4_A_D_economy_089",
+      "origin": "A",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.63,
+      "actual_tons": 0.49
+    },
+    {
+      "id": "DEM_T4_A_E_economy_090",
+      "origin": "A",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.17,
+      "actual_tons": 0.92
+    },
+    {
+      "id": "DEM_T4_A_F_economy_091",
+      "origin": "A",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.88,
+      "actual_tons": 0.73
+    },
+    {
+      "id": "DEM_T4_A_G_economy_092",
+      "origin": "A",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.73,
+      "actual_tons": 0.65
+    },
+    {
+      "id": "DEM_T4_A_H_economy_093",
+      "origin": "A",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.08,
+      "actual_tons": 0.07
+    },
+    {
+      "id": "DEM_T4_B_A_economy_094",
+      "origin": "B",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.77,
+      "actual_tons": 0.6
+    },
+    {
+      "id": "DEM_T4_B_C_economy_095",
+      "origin": "B",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 5.91,
+      "actual_tons": 4.81
+    },
+    {
+      "id": "DEM_T4_B_D_economy_096",
+      "origin": "B",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.88,
+      "actual_tons": 0.66
+    },
+    {
+      "id": "DEM_T4_B_E_economy_097",
+      "origin": "B",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.95,
+      "actual_tons": 0.79
+    },
+    {
+      "id": "DEM_T4_B_F_economy_098",
+      "origin": "B",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.47,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T4_B_G_economy_099",
+      "origin": "B",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.3,
+      "actual_tons": 0.26
+    },
+    {
+      "id": "DEM_T4_B_H_economy_100",
+      "origin": "B",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.98,
+      "actual_tons": 0.87
+    },
+    {
+      "id": "DEM_T4_C_A_economy_101",
+      "origin": "C",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.32,
+      "actual_tons": 0.98
+    },
+    {
+      "id": "DEM_T4_C_B_economy_102",
+      "origin": "C",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.79,
+      "actual_tons": 0.61
+    },
+    {
+      "id": "DEM_T4_C_D_economy_103",
+      "origin": "C",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 2.81,
+      "actual_tons": 2.45
+    },
+    {
+      "id": "DEM_T4_C_E_economy_104",
+      "origin": "C",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.38,
+      "actual_tons": 0.32
+    },
+    {
+      "id": "DEM_T4_C_F_economy_105",
+      "origin": "C",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 2.81,
+      "actual_tons": 2.23
+    },
+    {
+      "id": "DEM_T4_C_G_economy_106",
+      "origin": "C",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.57,
+      "actual_tons": 0.45
+    },
+    {
+      "id": "DEM_T4_C_H_economy_107",
+      "origin": "C",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.42,
+      "actual_tons": 0.35
+    },
+    {
+      "id": "DEM_T4_D_A_economy_108",
+      "origin": "D",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.54,
+      "actual_tons": 0.42
+    },
+    {
+      "id": "DEM_T4_D_B_economy_109",
+      "origin": "D",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.57,
+      "actual_tons": 0.46
+    },
+    {
+      "id": "DEM_T4_D_C_economy_110",
+      "origin": "D",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.26,
+      "actual_tons": 1.09
+    },
+    {
+      "id": "DEM_T4_D_E_economy_111",
+      "origin": "D",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.29,
+      "actual_tons": 0.24
+    },
+    {
+      "id": "DEM_T4_D_F_economy_112",
+      "origin": "D",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.34,
+      "actual_tons": 0.3
+    },
+    {
+      "id": "DEM_T4_D_G_economy_113",
+      "origin": "D",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.27,
+      "actual_tons": 0.24
+    },
+    {
+      "id": "DEM_T4_D_H_economy_114",
+      "origin": "D",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.83,
+      "actual_tons": 1.5
+    },
+    {
+      "id": "DEM_T4_E_A_economy_115",
+      "origin": "E",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.82,
+      "actual_tons": 0.6
+    },
+    {
+      "id": "DEM_T4_E_B_economy_116",
+      "origin": "E",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.22,
+      "actual_tons": 0.18
+    },
+    {
+      "id": "DEM_T4_E_C_economy_117",
+      "origin": "E",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.46,
+      "actual_tons": 0.35
+    },
+    {
+      "id": "DEM_T4_E_D_economy_118",
+      "origin": "E",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.22,
+      "actual_tons": 0.19
+    },
+    {
+      "id": "DEM_T4_E_F_economy_119",
+      "origin": "E",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.04,
+      "actual_tons": 0.79
+    },
+    {
+      "id": "DEM_T4_E_G_economy_120",
+      "origin": "E",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.1,
+      "actual_tons": 0.92
+    },
+    {
+      "id": "DEM_T4_E_H_economy_121",
+      "origin": "E",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.44,
+      "actual_tons": 1.13
+    },
+    {
+      "id": "DEM_T4_F_A_economy_122",
+      "origin": "F",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.26,
+      "actual_tons": 0.23
+    },
+    {
+      "id": "DEM_T4_F_B_economy_123",
+      "origin": "F",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.0,
+      "actual_tons": 0.0
+    },
+    {
+      "id": "DEM_T4_F_C_economy_124",
+      "origin": "F",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.85,
+      "actual_tons": 0.64
+    },
+    {
+      "id": "DEM_T4_F_D_economy_125",
+      "origin": "F",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.14,
+      "actual_tons": 0.12
+    },
+    {
+      "id": "DEM_T4_F_E_economy_126",
+      "origin": "F",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.15,
+      "actual_tons": 1.02
+    },
+    {
+      "id": "DEM_T4_F_G_economy_127",
+      "origin": "F",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.65,
+      "actual_tons": 0.5
+    },
+    {
+      "id": "DEM_T4_F_H_economy_128",
+      "origin": "F",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.83,
+      "actual_tons": 0.61
+    },
+    {
+      "id": "DEM_T4_G_A_economy_129",
+      "origin": "G",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.75,
+      "actual_tons": 0.61
+    },
+    {
+      "id": "DEM_T4_G_B_economy_130",
+      "origin": "G",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.21,
+      "actual_tons": 0.19
+    },
+    {
+      "id": "DEM_T4_G_C_economy_131",
+      "origin": "G",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.49,
+      "actual_tons": 0.37
+    },
+    {
+      "id": "DEM_T4_G_D_economy_132",
+      "origin": "G",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 2.94,
+      "actual_tons": 2.2
+    },
+    {
+      "id": "DEM_T4_G_E_economy_133",
+      "origin": "G",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.98,
+      "actual_tons": 0.88
+    },
+    {
+      "id": "DEM_T4_G_F_economy_134",
+      "origin": "G",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.62,
+      "actual_tons": 1.33
+    },
+    {
+      "id": "DEM_T4_G_H_economy_135",
+      "origin": "G",
+      "destination": "H",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 3.2,
+      "actual_tons": 2.79
+    },
+    {
+      "id": "DEM_T4_H_A_economy_136",
+      "origin": "H",
+      "destination": "A",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.7,
+      "actual_tons": 0.59
+    },
+    {
+      "id": "DEM_T4_H_B_economy_137",
+      "origin": "H",
+      "destination": "B",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.69,
+      "actual_tons": 0.6
+    },
+    {
+      "id": "DEM_T4_H_C_economy_138",
+      "origin": "H",
+      "destination": "C",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.6,
+      "actual_tons": 0.48
+    },
+    {
+      "id": "DEM_T4_H_D_economy_139",
+      "origin": "H",
+      "destination": "D",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.71,
+      "actual_tons": 0.64
+    },
+    {
+      "id": "DEM_T4_H_E_economy_140",
+      "origin": "H",
+      "destination": "E",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.33,
+      "actual_tons": 0.28
+    },
+    {
+      "id": "DEM_T4_H_F_economy_141",
+      "origin": "H",
+      "destination": "F",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 0.58,
+      "actual_tons": 0.47
+    },
+    {
+      "id": "DEM_T4_H_G_economy_142",
+      "origin": "H",
+      "destination": "G",
+      "product": "economy",
+      "release_slot": 4,
+      "forecast_tons": 1.41,
+      "actual_tons": 1.05
+    },
+    {
+      "id": "EMG_INSERT_T7_B_D",
+      "origin": "B",
+      "destination": "D",
+      "product": "urgent",
+      "release_slot": 7,
+      "forecast_tons": 0.0,
+      "actual_tons": 10.29
+    }
+  ],
+  "event": {
+    "type": "urgent_insert",
+    "slot": 7,
+    "origin": "B",
+    "destination": "D",
+    "product": "urgent",
+    "tons": 10.29,
+    "node": null,
+    "vehicle_count": null,
+    "demand_id": "EMG_INSERT_T7_B_D",
+    "demand_adjustments": null,
+    "selection_policy": null
+  },
+  "metadata": {
+    "batch_total_error_range": [
+      -0.2,
+      0.2
+    ],
+    "od_product_share_perturbation": 0.1,
+    "slot_hours": 3,
+    "rolling_interval_hours": 6,
+    "change_penalty_ratio_candidate": 0.1,
+    "status": "approved_revised_v5"
+  }
+}
