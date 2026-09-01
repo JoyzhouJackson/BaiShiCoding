@@ -50,6 +50,66 @@ export const methodContents: MethodContent[] = [
     why: '车辆任务是离散决策、货量分配是连续决策，同时存在车辆平衡、运力和服务约束，天然适合混合整数线性规划。',
     decides: ['原定/临时自有/外请班车开行数', '车辆直达或串点任务', '各批货物的连续行程分配', '留仓、中转、分流与延期', '插单接入与未来方案变更'],
     notDecides: ['逐票包裹排序', '逐辆车编号与司机排班', '真实道路拥堵与仓库微观作业'],
+    decisionMappings: [
+      {
+        decision: '班车开行与车辆来源',
+        businessMeaning: '决定每个候选任务开几辆车，以及使用原定、自有临时车还是外请车。',
+        variables: [{ symbol: 'yₘ', meaning: '候选班车任务 m 的开行车辆数（整数）' }],
+        constraints: [
+          { name: '车辆—货物运力耦合', formula: 'Σ(d,p) a(d,p,m,s)·x(d,p) ≤ 20·yₘ', meaning: '任务每个区段承运吨数不超过所派车辆总容量。' },
+          { name: '自有车节点—时段守恒', formula: 'V(n,t+1)=V(n,t)−Depart(n,t)+Arrive(n,t)', meaning: '自有车从起点扣减，到终点后补回；外请车不计入库存。' },
+          { name: '外请上限', formula: 'Σm∈Mext(n,t) yₘ ≤ Emax(n,t)', meaning: '每个节点和时段可调用的外请车数量有限。' },
+        ],
+      },
+      {
+        decision: '货物路由与分流',
+        businessMeaning: '为每批OD—产品需求选择直达、串点直达、换车中转或延期行程，并允许按吨分流。',
+        variables: [{ symbol: 'x(d,p)', meaning: '需求 d 分配给候选行程 p 的连续吨数' }],
+        constraints: [
+          { name: '货量守恒', formula: 'Σp∈P(d) x(d,p)=Qd', meaning: '所有未撤销货物必须在观察期内最终送达。' },
+          { name: '合法行程', formula: 'x(d,p)=0,  若 p 违反时序/中转上限', meaning: '加急最多1次中转，普通与经济最多2次；串点最多1个中间节点。' },
+        ],
+      },
+      {
+        decision: '节点留仓与处理',
+        businessMeaning: '处理能力不足时让货物留在节点，后续时段再处理和运输。',
+        variables: [{ symbol: 'I(n,t)', meaning: '节点 n 在时段 t 结束时的留仓吨数' }],
+        constraints: [
+          { name: '节点处理能力', formula: 'H(n,t) ≤ Cap(n,t)', meaning: '当期装卸与中转处理量不能超过节点能力。' },
+          { name: '仓储政策', formula: 'I(n,t) ≥ 0（不设上界）', meaning: '仓容视为充足，但每跨一个时段产生库存成本。' },
+        ],
+      },
+      {
+        decision: '服务水平与延期',
+        businessMeaning: '所有货物仍须送达；无法准时时允许延期，并分别记录延误量与目标短缺量。',
+        variables: [{ symbol: 'L(d,p)', meaning: '行程 p 相对需求 d 截止期的延误时段数' }, { symbol: 'sₖ', meaning: '产品 k 距离目标准时吨数的短缺量' }],
+        constraints: [
+          { name: '软服务目标', formula: 'OnTimeTonsₖ+sₖ ≥ ηₖ·TotalTonsₖ', meaning: '98%/95%/90%是带高惩罚的软目标，而非造成无解的硬门槛。' },
+        ],
+      },
+      {
+        decision: '滚动计划变更',
+        businessMeaning: '锁定已经执行的任务和货流，并衡量未来班车变化与既有货物改道。',
+        variables: [{ symbol: 'Δyₘ', meaning: '相对上一版计划的班车任务变化量' }, { symbol: 'Δx(d,p)', meaning: '已规划货物在行程上的改变量' }],
+        constraints: [
+          { name: '执行锁定', formula: '(y,x)executed=(ȳ,x̄)executed', meaning: '调度时点以前的已执行决策不可回滚。' },
+          { name: '绝对变化线性化', formula: 'Δy≥|y−ȳ|，Δx≥|x−x̄|', meaning: '只对尚未执行部分相对上一版方案的变化计成本。' },
+        ],
+      },
+    ],
+    objective: {
+      formula: 'min Z = C运输 + C装卸 + C留仓 + C中转 + C延误 + C服务短缺 + C变更',
+      note: '所有项统一为成本并直接相加；服务目标是软约束，但货物最终送达仍是硬约束。',
+      terms: [
+        { symbol: 'C运输', label: '运输成本', formula: 'Σm cveh(m)·yₘ', meaning: '开行原定、临时自有或外请任务产生的车辆成本。', linkedDecisions: ['班车开行与车辆来源'] },
+        { symbol: 'C装卸', label: '装卸成本', formula: 'chand·Σ(d,p) ops(d,p)·x(d,p)', meaning: '货物在起终点和中转节点的装卸作业成本。', linkedDecisions: ['货物路由与分流', '节点留仓与处理'] },
+        { symbol: 'C留仓', label: '库存成本', formula: 'cinv·Σ(n,t) I(n,t)', meaning: '货物留仓跨时段占用场地与管理资源的成本。', linkedDecisions: ['节点留仓与处理'] },
+        { symbol: 'C中转', label: '中转成本', formula: 'ctr·Σ(d,p) transfers(p)·x(d,p)', meaning: '货物换车中转的额外操作成本；串点不换车不计中转。', linkedDecisions: ['货物路由与分流'] },
+        { symbol: 'C延误', label: '延误成本', formula: 'Σ(d,p) clate(k)·L(d,p)·x(d,p)', meaning: '超过产品截止期后，每吨每延误时段支付的成本。', linkedDecisions: ['服务水平与延期', '货物路由与分流'] },
+        { symbol: 'C服务短缺', label: '服务短缺成本', formula: 'Σk csvc(k)·sₖ', meaning: '总体准时吨数低于产品目标时的额外高惩罚，不代表取消配送。', linkedDecisions: ['服务水平与延期'] },
+        { symbol: 'C变更', label: '变更成本', formula: 'λtrip·ΣmΔyₘ + λcargo·Σ(d,p)Δx(d,p)', meaning: '用于抑制频繁改班车和已规划货物改道，与运输或延误成本不重复。', linkedDecisions: ['滚动计划变更'] },
+      ],
+    },
     settings: [
       { label: '候选路径', value: '每批最多36条' },
       { label: '单次上限', value: '300秒' },
@@ -90,13 +150,28 @@ export const methodContents: MethodContent[] = [
     why: '班车是少量离散决策，货物路由是大规模连续决策；按结构分层可避免一次枚举所有货物路径。',
     decides: ['外层：班车、车辆来源、车辆位置和插单接入', '内层：货物路径、吨位分配、留仓与服务短缺', '定价：动态发现有改善潜力的新行程'],
     notDecides: ['逐票与逐车微观作业', '未经定价探索的道路拥堵状态', '尚未实现前不能提供真实性能结论'],
+    decisionMappings: [
+      { decision: '外层班车与接入', businessMeaning: '主问题决定车辆任务和是否接入紧急插单。', variables: [{ symbol: 'yₘ,zq', meaning: '班车车辆数与插单接入变量' }, { symbol: 'Θ', meaning: '内层最低货物流成本的估计值' }], constraints: [{ name: '主问题物理约束', formula: 'Ay≤b，zq∈{0,1}', meaning: '保留车辆平衡、外请上限、执行锁定与插单规则。' }] },
+      { decision: '内层货物流', businessMeaning: '固定班车后，用连续流决定所有已接货物的行程和吨位。', variables: [{ symbol: 'λ(d,p)', meaning: '需求 d 使用路径列 p 的吨数' }], constraints: [{ name: '受限主问题', formula: 'Σp λ(d,p)=Qd，Dλ≤20y', meaning: '满足需求守恒、区段运力、处理能力和服务口径。' }] },
+      { decision: '路径动态生成', businessMeaning: '只在需要时发现直达、中转和留仓组合，而非预先固定36条。', variables: [{ symbol: 'pnew', meaning: '定价子问题找到的新路径列' }], constraints: [{ name: '负约化成本', formula: 'c̄(pnew)=cp−πᵀap<0', meaning: '只有能改善当前内层目标的路径才加入路径池。' }] },
+      { decision: '外内层反馈', businessMeaning: '子问题把不可行原因或最低成本反馈给班车主问题。', variables: [{ symbol: 'cut', meaning: 'Benders可行性割或最优性割' }], constraints: [{ name: 'Benders割', formula: 'Θ≥α+Σmβₘyₘ+Σqγqzq', meaning: '逐轮收紧货物流成本估计并排除运力不足方案。' }] },
+    ],
+    objective: {
+      formula: 'min Zmaster = C班车(y) + Θ + C变更(y)；Θ由货物流子问题给出',
+      note: '业务成本口径与MILP完全一致，只改变求解结构；真实实现后才能比较速度和解质量。',
+      terms: [
+        { symbol: 'C班车', label: '外层运输成本', formula: 'Σm cveh(m)·yₘ', meaning: '主问题直接计算班车与车辆来源成本。', linkedDecisions: ['外层班车与接入'] },
+        { symbol: 'Θ', label: '内层成本估计', formula: 'Θ≥Benders cuts', meaning: '汇总装卸、留仓、中转、延误和服务短缺的最优估计。', linkedDecisions: ['内层货物流', '外内层反馈'] },
+        { symbol: 'C变更', label: '计划稳定成本', formula: 'λtrip·ΣΔy + λcargo·ΣΔλ', meaning: '仍按与联合MILP一致的班车变化和货物改道口径计算。', linkedDecisions: ['外层班车与接入', '内层货物流'] },
+      ],
+    },
     settings: [
       { label: '外层', value: '整数Benders主问题' },
       { label: '内层', value: '连续货物流LP' },
       { label: '路径', value: '列生成动态加入' },
       { label: '仓储', value: '非约束，留仓计成本' },
       { label: '停止', value: '上下界与定价同时收敛' },
-      { label: '数据状态', value: '模拟占位' },
+      { label: '数据状态', value: '真实实验待运行' },
     ],
     verification: ['先验证受限主问题货量守恒', '检查定价约化成本计算', '检查可行性割与最优性割有效性', '核对Benders上下界单调性', '当前尚无真实运行结果'],
     advantages: ['路径不再受固定36条限制', '班车和货物流边界清晰', '可输出上下界与分解过程', '有机会应对更大路径空间'],
@@ -132,6 +207,20 @@ export const methodContents: MethodContent[] = [
     why: '训练完成后策略查表速度快，适合频繁滚动与突发事件；分层和模板化可压缩直接枚举组合方案的巨大动作空间。',
     decides: ['高层：保留计划、加开自有、外请、调整串点等运力模板', '低层：直达、串点直达、中转或留仓模板', '在可行动作集合内按Q值选择策略'],
     notDecides: ['不调用MILP作为低层求解器', '不保证得到数学最优解', '表格未覆盖状态的表现依赖离散化与训练分布'],
+    decisionMappings: [
+      { decision: '高层运力模板', businessMeaning: '在每个滚动点或异常时点选择保留、加开、外请或串点调整。', variables: [{ symbol: 'aᴴ', meaning: '高层离散运力动作' }, { symbol: 'Qᴴ(s,a)', meaning: '高层状态—动作长期价值表' }], constraints: [{ name: '高层动作掩码', formula: 'aᴴ∈Aᴴfeasible(s)', meaning: '屏蔽违反车辆可用、外请上限和执行锁定的模板。' }] },
+      { decision: '低层货运模板', businessMeaning: '为货物选择直达、串点直达、中转或留仓。', variables: [{ symbol: 'aᴸ', meaning: '低层离散货运模板动作' }, { symbol: 'Qᴸ(s,aᴴ,a)', meaning: '给定高层动作的低层价值表' }], constraints: [{ name: '低层动作掩码', formula: 'aᴸ∈Aᴸfeasible(s,aᴴ)', meaning: '屏蔽违反运力、处理能力、时序和中转次数的动作。' }] },
+      { decision: '策略学习', businessMeaning: '用统一成本反馈更新双层Q表，测试时关闭探索。', variables: [{ symbol: 'Q(s,a)', meaning: '动作的折扣累计回报估计' }], constraints: [{ name: 'Q更新', formula: 'Q←Q+α[r+γ max Q′−Q]', meaning: '仅在训练集更新；12个正式案例严格只测试。' }] },
+    ],
+    objective: {
+      formula: 'max E[Σt γᵗrt]，其中 rt = −(C运输+C装卸+C留仓+C中转+C延误+C服务短缺+C变更)',
+      note: '奖励与MILP总成本同口径；硬物理规则由动作掩码保证，不依赖巨大罚分碰运气。',
+      terms: [
+        { symbol: '−C运营', label: '即时运营回报', formula: '−(运输+装卸+留仓+中转)', meaning: '鼓励用较低的实际运营成本完成运输。', linkedDecisions: ['高层运力模板', '低层货运模板'] },
+        { symbol: '−C服务', label: '服务回报', formula: '−(延误+服务短缺)', meaning: '同时关注单票延误程度和总体准时目标。', linkedDecisions: ['低层货运模板'] },
+        { symbol: '−C变更', label: '稳定性回报', formula: '−(班车变化+货物改道)', meaning: '避免策略在相邻滚动点频繁推翻未来方案。', linkedDecisions: ['高层运力模板', '低层货运模板'] },
+      ],
+    },
     settings: [
       { label: '高层周期', value: '每6小时或异常触发' },
       { label: '低层动作', value: '4类货运模板' },

@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { methodContents } from '../data/content'
-import type { MethodId } from '../data/types'
-import FlowDiagram from './FlowDiagram'
-import SectionHeading from './SectionHeading'
+import type { ComparisonData, MethodContent, MethodId } from '../data/types'
 import ExplainableText from './ExplainableText'
+import FlowDiagram from './FlowDiagram'
+import MilpBusinessFlow from './MilpBusinessFlow'
+import SectionHeading from './SectionHeading'
+
+const MilpResultsDashboard = lazy(() => import('./MilpResultsDashboard'))
 
 interface MethodExplorerProps {
+  comparison: ComparisonData
   onExplain: (title: string, content: string) => void
 }
 
@@ -16,19 +20,50 @@ function StatusPill({ status, text }: { status: 'real' | 'mock' | 'planned'; tex
   return <span className={`status-pill ${status}`}>{status === 'real' ? '●' : '◌'} {text}</span>
 }
 
-export default function MethodExplorer({ onExplain }: MethodExplorerProps) {
+function DecisionMap({ method }: { method: MethodContent }) {
+  return (
+    <div className="decision-map">
+      {method.decisionMappings.map((mapping, index) => (
+        <article key={mapping.decision} className="decision-map-row">
+          <div className="decision-name"><span>决策 {String(index + 1).padStart(2, '0')}</span><h4>{mapping.decision}</h4><p>{mapping.businessMeaning}</p></div>
+          <div className="variable-block"><span className="mapping-label">对应变量 / 动作</span>{mapping.variables.map((variable) => <div key={variable.symbol}><code>{variable.symbol}</code><p>{variable.meaning}</p></div>)}</div>
+          <div className="constraint-block"><span className="mapping-label">直接对应的核心约束</span>{mapping.constraints.map((constraint) => <div key={constraint.name}><b>{constraint.name}</b><code>{constraint.formula}</code><p>{constraint.meaning}</p></div>)}</div>
+        </article>
+      ))}
+    </div>
+  )
+}
+
+function ObjectiveMap({ method }: { method: MethodContent }) {
+  return (
+    <div className="objective-map">
+      <div className="objective-formula"><span>OBJECTIVE</span><code>{method.objective.formula}</code><p>{method.objective.note}</p></div>
+      <div className="objective-terms">
+        {method.objective.terms.map((term) => (
+          <article key={term.symbol}><div><code>{term.symbol}</code><h4>{term.label}</h4></div><code className="term-formula">{term.formula}</code><p>{term.meaning}</p><small>关联决策：{term.linkedDecisions.join('、')}</small></article>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function PlannedResult({ method }: { method: MethodContent }) {
+  return (
+    <div className="planned-result">
+      <div><span>RESULT STATUS</span><h4>{method.statusText}</h4><p>当前只展示可审核的方法设计、验证计划和预期适用边界；尚未运行真实实验，因此不在这里给出成本、速度或排名结论。</p></div>
+      <b>待真实实现与实验</b>
+    </div>
+  )
+}
+
+export default function MethodExplorer({ comparison, onExplain }: MethodExplorerProps) {
   const [selectedId, setSelectedId] = useState<MethodId>('milp')
   const [level, setLevel] = useState<ExplanationLevel>('business')
   const method = methodContents.find((item) => item.id === selectedId)!
 
   return (
     <section className="page-section methods-section" id="methods">
-      <SectionHeading
-        index="02"
-        kicker="三条求解路线"
-        title="同一问题，三种不同的决策机制"
-        description="MILP展示已实现模型与真实结果；另外两种方法如实标明设计完成但实验待运行，不用模拟数字替代方法证据。"
-      />
+      <SectionHeading index="02" kicker="三条求解路线" title="同一问题，三种不同的决策机制" description="先用一一对应关系说明每种方法做什么决策、使用什么变量、受哪些核心约束，再展示完整技术路线、参数、验证和结果。" />
       <div className="method-tabs" role="tablist" aria-label="求解方法">
         {methodContents.map((item, index) => (
           <button key={item.id} role="tab" aria-selected={item.id === selectedId} className={item.id === selectedId ? 'active' : ''} onClick={() => setSelectedId(item.id)}>
@@ -38,19 +73,18 @@ export default function MethodExplorer({ onExplain }: MethodExplorerProps) {
       </div>
       <article className="method-panel" key={method.id}>
         <div className="method-intro">
-          <div>
-            <StatusPill status={method.dataStatus} text={method.statusText} />
-            <h3>{method.label}</h3>
-            <p className="method-tagline"><ExplainableText text={method.tagline} onExplain={onExplain} /></p>
-          </div>
+          <div><StatusPill status={method.dataStatus} text={method.statusText} /><h3>{method.label}</h3><p className="method-tagline"><ExplainableText text={method.tagline} onExplain={onExplain} /></p></div>
           <div className="why-box"><span>WHY THIS METHOD</span><p><ExplainableText text={method.why} onExplain={onExplain} /></p></div>
         </div>
-        <div className="decision-grid">
-          <div><h4>它决定什么</h4><ul className="check-list">{method.decides.map((item) => <li key={item}><ExplainableText text={item} onExplain={onExplain} /></li>)}</ul></div>
-          <div><h4>它不决定什么</h4><ul className="minus-list">{method.notDecides.map((item) => <li key={item}><ExplainableText text={item} onExplain={onExplain} /></li>)}</ul></div>
-        </div>
-        <div className="subsection-title"><span>交互式技术路线</span><small>关键业务决策置于主流程，辅助说明按需展开</small></div>
-        <FlowDiagram method={method} onExplain={onExplain} />
+
+        <div className="subsection-title numbered"><span><i>01</i> 做哪些决策：变量与核心约束对应表</span><small>从业务决策一路追溯到数学表达</small></div>
+        <DecisionMap method={method} />
+        <div className="subsection-title numbered"><span><i>02</i> 目标函数与每一项成本的含义</span><small>每项成本标明公式和关联决策</small></div>
+        <ObjectiveMap method={method} />
+        <div className="subsection-title numbered"><span><i>03</i> 完整技术路线</span><small>{method.id === 'milp' ? '按已保存的Gurobi业务流程图重构' : '设计路线，尚未实现'}</small></div>
+        {method.id === 'milp' ? <MilpBusinessFlow onExplain={onExplain} /> : <FlowDiagram method={method} onExplain={onExplain} />}
+
+        <div className="subsection-title numbered"><span><i>04</i> 参数、停止条件与解释</span><small>支持业务、算法、数学三级阅读</small></div>
         <div className="method-detail-grid">
           <div className="explanation-card">
             <div className="level-tabs" role="tablist" aria-label="解释深度">
@@ -60,6 +94,10 @@ export default function MethodExplorer({ onExplain }: MethodExplorerProps) {
           </div>
           <div className="settings-card"><h4>参数与停止条件</h4><dl>{method.settings.map((item) => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl></div>
         </div>
+
+        <div className="subsection-title numbered"><span><i>05</i> 验证与测试结果</span><small>真实结果与待实验方法严格分开</small></div>
+        {method.id === 'milp' ? <Suspense fallback={<div className="chart-loading">正在加载真实MILP结果组件…</div>}><MilpResultsDashboard data={comparison} /></Suspense> : <PlannedResult method={method} />}
+
         <div className="evidence-grid">
           <div><span className="eyebrow">VERIFICATION</span><h4>正确性与验证</h4><ul>{method.verification.map((item) => <li key={item}>{item}</li>)}</ul></div>
           <div><span className="eyebrow">STRENGTHS</span><h4>优势与适用范围</h4><ul>{method.advantages.map((item) => <li key={item}>{item}</li>)}</ul></div>

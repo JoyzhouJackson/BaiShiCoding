@@ -33,6 +33,16 @@ METHODS = (
     ("tabular-hrl", "分层表格强化学习", "mock"),
 )
 
+# This wall-clock interval was reconstructed from the first Gurobi log creation
+# and the last independent-validation file write for the frozen v6_12 run.  It
+# includes result serialization and validation, so the web UI must label it as
+# inferred rather than as a solver-recorded field.
+PARALLEL_RUN_EVIDENCE = {
+    "start": "2026-09-01 00:06:51.797",
+    "end": "2026-09-01 00:37:16.664",
+    "seconds": 1824.867,
+}
+
 
 def read_json(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as stream:
@@ -199,6 +209,8 @@ def main() -> None:
     summaries = []
     real_metrics = []
     animation_manifest = []
+    solver_limit_hits = []
+    gurobi_calls = 0
     for case_id in ordered_case_ids:
         category = next(
             category for category, values in active["categories"].items()
@@ -275,6 +287,29 @@ def main() -> None:
         runtime = float(solution["baseline"].get("runtime_seconds", 0.0)) + sum(
             float(step.get("runtime_seconds") or 0.0) for step in solution["rolling_steps"]
         )
+        gurobi_calls += 1 + len(solution["rolling_steps"])
+        baseline = solution["baseline"]
+        if baseline.get("status") == "time_limit":
+            solver_limit_hits.append({
+                "caseId": case_id,
+                "callType": "day_start",
+                "callLabel": "日初规划",
+                "gap": float(baseline.get("mip_gap") or 0.0),
+                "runtimeSeconds": float(baseline.get("runtime_seconds") or 0.0),
+                "hour": 0,
+            })
+        for step in solution["rolling_steps"]:
+            if step.get("status") != "time_limit":
+                continue
+            call_type = "event" if step.get("decision_type") == "event" else "periodic"
+            solver_limit_hits.append({
+                "caseId": case_id,
+                "callType": call_type,
+                "callLabel": "事件重调度" if call_type == "event" else "6小时滚动",
+                "gap": float(step.get("mip_gap") or 0.0),
+                "runtimeSeconds": float(step.get("runtime_seconds") or 0.0),
+                "hour": int(step.get("hour") or 0),
+            })
         metric = {
             "methodId": "milp", "methodLabel": "MILP联合决策", "dataStatus": "real",
             "caseId": case_id, "category": category,
@@ -396,6 +431,21 @@ def main() -> None:
             for method_id, label, status in METHODS
         ],
         "metrics": all_metrics,
+        "experimentSummary": {
+            "completedCases": len(real_metrics),
+            "validatedCases": sum(metric["validationStatus"] == "pass" for metric in real_metrics),
+            "gurobiCalls": gurobi_calls,
+            "sumSolverSeconds": round(sum(metric["runtimeSeconds"] for metric in real_metrics), 3),
+            "timeLimitCalls": len(solver_limit_hits),
+            "parallelElapsedSeconds": PARALLEL_RUN_EVIDENCE["seconds"],
+            "parallelElapsedLabel": "≈30分25秒",
+            "parallelElapsedIsInferred": True,
+            "parallelElapsedEvidence": (
+                f"由首个Gurobi日志创建时间 {PARALLEL_RUN_EVIDENCE['start']} 至最后一个独立验证文件写入时间 "
+                f"{PARALLEL_RUN_EVIDENCE['end']} 推算；包含结果写盘与独立验证。"
+            ),
+        },
+        "solverLimitHits": solver_limit_hits,
         "mockPolicy": (
             "Mock values are deterministic neutral perturbations for interface demonstration only. "
             "They are excluded from findings, rankings and significance claims."

@@ -62,7 +62,7 @@ export default function FoundationSection({ foundation, cases, selectedCaseId, o
       <SectionHeading
         index="01"
         kicker="统一问题边界"
-        title="先固定共同世界，再比较求解方法"
+        title="先统一问题边界，再比较求解方法"
         description="以下业务结构、全局假设和测试实例对三种方法完全一致。切换方法不会改变它们，从而保证比较口径统一。"
       />
       <div className="foundation-grid">

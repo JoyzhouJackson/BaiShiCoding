@@ -42,7 +42,7 @@ export default function App() {
       <Header />
       <main>
         <FoundationSection foundation={data.foundation} cases={data.cases} selectedCaseId={selectedCaseId} onSelectCase={setSelectedCaseId} onExplain={explain} />
-        <MethodExplorer onExplain={explain} />
+        <MethodExplorer comparison={data.comparison} onExplain={explain} />
         <ComparisonSection data={data.comparison} />
         <SimulationSection cases={data.cases} selectedCaseId={selectedCaseId} onSelectCase={setSelectedCaseId} manifest={data.animationManifest} />
         <ConclusionSection data={data.comparison} />

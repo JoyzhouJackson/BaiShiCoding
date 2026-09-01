@@ -119,6 +119,25 @@ export interface ComparisonData {
   methods: Array<{ methodId: MethodId; label: string; dataStatus: DataStatus }>
   metrics: ComparisonMetric[]
   mockPolicy: string
+  experimentSummary?: {
+    completedCases: number
+    validatedCases: number
+    gurobiCalls: number
+    sumSolverSeconds: number
+    timeLimitCalls: number
+    parallelElapsedSeconds: number
+    parallelElapsedLabel: string
+    parallelElapsedIsInferred: boolean
+    parallelElapsedEvidence: string
+  }
+  solverLimitHits?: Array<{
+    caseId: string
+    callType: 'day_start' | 'periodic' | 'event'
+    callLabel: string
+    gap: number
+    runtimeSeconds: number
+    hour: number
+  }>
 }
 
 export interface AnimationManifest {
@@ -217,6 +236,23 @@ export interface MethodContent {
   why: string
   decides: string[]
   notDecides: string[]
+  decisionMappings: Array<{
+    decision: string
+    businessMeaning: string
+    variables: Array<{ symbol: string; meaning: string }>
+    constraints: Array<{ name: string; formula: string; meaning: string }>
+  }>
+  objective: {
+    formula: string
+    note: string
+    terms: Array<{
+      symbol: string
+      label: string
+      formula: string
+      meaning: string
+      linkedDecisions: string[]
+    }>
+  }
   settings: Array<{ label: string; value: string }>
   verification: string[]
   advantages: string[]
