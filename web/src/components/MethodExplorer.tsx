@@ -7,6 +7,7 @@ import MilpBusinessFlow from './MilpBusinessFlow'
 import SectionHeading from './SectionHeading'
 
 const MilpResultsDashboard = lazy(() => import('./MilpResultsDashboard'))
+const BendersResultsSummary = lazy(() => import('./BendersResultsSummary'))
 
 interface MethodExplorerProps {
   comparison: ComparisonData
@@ -81,7 +82,7 @@ export default function MethodExplorer({ comparison, onExplain }: MethodExplorer
         <DecisionMap method={method} />
         <div className="subsection-title numbered"><span><i>02</i> 目标函数与每一项成本的含义</span><small>每项成本标明公式和关联决策</small></div>
         <ObjectiveMap method={method} />
-        <div className="subsection-title numbered"><span><i>03</i> 完整技术路线</span><small>{method.id === 'milp' ? '按已保存的Gurobi业务流程图重构' : '设计路线，尚未实现'}</small></div>
+        <div className="subsection-title numbered"><span><i>03</i> 完整技术路线</span><small>{method.id === 'milp' ? '按已保存的Gurobi业务流程图重构' : method.id === 'benders-cg' ? '按真实分解求解过程展示' : '设计路线，尚未实现'}</small></div>
         {method.id === 'milp' ? <MilpBusinessFlow onExplain={onExplain} /> : <FlowDiagram method={method} onExplain={onExplain} />}
 
         <div className="subsection-title numbered"><span><i>04</i> 参数、停止条件与解释</span><small>支持业务、算法、数学三级阅读</small></div>
@@ -96,7 +97,9 @@ export default function MethodExplorer({ comparison, onExplain }: MethodExplorer
         </div>
 
         <div className="subsection-title numbered"><span><i>05</i> 验证与测试结果</span><small>真实结果与待实验方法严格分开</small></div>
-        {method.id === 'milp' ? <Suspense fallback={<div className="chart-loading">正在加载真实MILP结果组件…</div>}><MilpResultsDashboard data={comparison} /></Suspense> : <PlannedResult method={method} />}
+        {method.id === 'milp' && <Suspense fallback={<div className="chart-loading">正在加载真实MILP结果组件…</div>}><MilpResultsDashboard data={comparison} /></Suspense>}
+        {method.id === 'benders-cg' && <Suspense fallback={<div className="chart-loading">正在加载真实Benders结果组件…</div>}><BendersResultsSummary data={comparison} /></Suspense>}
+        {method.id === 'tabular-hrl' && <PlannedResult method={method} />}
 
         <div className="evidence-grid">
           <div><span className="eyebrow">VERIFICATION</span><h4>正确性与验证</h4><ul>{method.verification.map((item) => <li key={item}>{item}</li>)}</ul></div>

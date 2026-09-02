@@ -26,14 +26,15 @@ npm run preview
 python scripts/build_web_data.py
 ```
 
-脚本从 `results/gurobi_v6_12/test` 读取12个真实MILP结果，生成首屏汇总、案例明细和逐案例动画分片。它会校验：
+脚本从 `results/gurobi_v6_12/test` 和 `results/benders_cg_v6_12/test` 读取两种方法的12对真实结果，生成首屏汇总、案例明细、成对分析和逐案例动画分片。它会校验：
 
-- 12个正式案例均完成并通过独立验证；
+- 两种方法的12个正式案例均完成并通过独立验证；
 - 首屏静态数据不超过500KB；
 - 单个动画JSON不超过5MB；
-- Benders＋列生成和分层Q学习仅生成带 `dataStatus: mock` 的固定种子接口占位数据。
+- Benders全周期收敛次数、终止原因和恢复问题状态均由真实结果自动汇总；
+- 分层Q学习仍生成带 `dataStatus: mock` 的固定种子接口占位数据。
 
-不要把221MB原始结果直接复制到 `public`。网页通过 `animationManifest` 按案例懒加载动画。
+不要把原始结果直接复制到 `public`。网页通过 `animationManifest` 按方法、按案例懒加载动画。
 
 ## 数据状态规则
 

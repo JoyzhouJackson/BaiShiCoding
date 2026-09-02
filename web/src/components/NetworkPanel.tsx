@@ -20,7 +20,7 @@ function pointOnSegment(from: [number, number], to: [number, number], progress: 
 }
 
 export default function NetworkPanel({ methodId, label, dataStatus, data, snapshot, slot }: NetworkPanelProps) {
-  const mockScale = methodId === 'benders-cg' ? 0.92 : methodId === 'tabular-hrl' ? 1.08 : 1
+  const mockScale = dataStatus === 'mock' ? (methodId === 'benders-cg' ? 0.92 : methodId === 'tabular-hrl' ? 1.08 : 1) : 1
   const activeFlows = snapshot.cargoFlows.filter((flow) => flow.departureSlot <= slot && flow.arrivalSlot > slot)
   const activeSegments = snapshot.missions.flatMap((mission) => mission.segments
     .filter((segment) => segment.departureSlot <= slot && segment.arrivalSlot > slot)

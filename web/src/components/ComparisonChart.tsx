@@ -25,6 +25,7 @@ export default function ComparisonChart({ metrics, metricKey, chartType, unit }:
     const statuses = methodIds.map((methodId) => metrics.find((item) => item.methodId === methodId)?.dataStatus ?? 'planned')
     const labels = baseLabels.map((label, index) => `${label}（${statuses[index] === 'real' ? '真实' : statuses[index] === 'mock' ? '模拟' : '待实验'}）`)
     const hasMock = statuses.includes('mock')
+    const mockCount = statuses.filter((status) => status === 'mock').length
     const base = {
       animationDuration: 500,
       color: colors,
@@ -33,7 +34,7 @@ export default function ComparisonChart({ metrics, metricKey, chartType, unit }:
       legend: { top: 10, textStyle: { color: '#334d62' } },
       graphic: hasMock ? [{
         type: 'text', right: 18, bottom: 16, rotation: -0.18, silent: true,
-        style: { text: '两种方法为模拟占位，不代表实验结果', fill: 'rgba(211, 92, 55, .16)', font: '700 18px sans-serif' },
+        style: { text: `${mockCount}种方法为模拟占位，不代表实验结果`, fill: 'rgba(211, 92, 55, .16)', font: '700 18px sans-serif' },
       }] : [],
     }
     if (chartType === 'box') {
@@ -88,5 +89,6 @@ export default function ComparisonChart({ metrics, metricKey, chartType, unit }:
     return () => { observer.disconnect(); chart.dispose() }
   }, [option])
 
-  return <div className="comparison-chart" ref={ref} role="img" aria-label={`${chartType === 'line' ? '逐案例折线图' : '方法箱型图'}，含真实MILP及两种模拟占位方法`} />
+  const realLabels = [...new Set(metrics.filter((item) => item.dataStatus === 'real').map((item) => item.methodLabel))]
+  return <div className="comparison-chart" ref={ref} role="img" aria-label={`${chartType === 'line' ? '逐案例折线图' : '方法箱型图'}，真实方法为${realLabels.join('和')}`} />
 }

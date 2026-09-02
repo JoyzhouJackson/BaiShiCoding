@@ -119,6 +119,7 @@ export interface ComparisonData {
   methods: Array<{ methodId: MethodId; label: string; dataStatus: DataStatus }>
   metrics: ComparisonMetric[]
   mockPolicy: string
+  pairedAnalysis?: PairedAnalysis
   experimentSummary?: {
     completedCases: number
     validatedCases: number
@@ -138,6 +139,63 @@ export interface ComparisonData {
     runtimeSeconds: number
     hour: number
   }>
+}
+
+export interface PairedCaseComparison {
+  caseId: string
+  category: Category
+  milpCost: number
+  bendersCost: number
+  relativeCostDelta: number
+  milpRuntimeSeconds: number
+  bendersRuntimeSeconds: number
+}
+
+export interface PairedAnalysis {
+  pairedCases: number
+  bothValidatedCases: number
+  milpMeanCost: number
+  bendersMeanCost: number
+  weightedCostDeltaRate: number
+  meanPairwiseCostDeltaRate: number
+  milpMeanRuntimeSeconds: number
+  bendersMeanRuntimeSeconds: number
+  runtimeDeltaRate: number
+  bendersBetterOrEqualCases: number
+  bestCase: PairedCaseComparison
+  worstCase: PairedCaseComparison
+  categories: Array<{
+    category: Category
+    label: string
+    count: number
+    milpMeanCost: number
+    bendersMeanCost: number
+    relativeCostDelta: number
+  }>
+  costDeltas: Array<{
+    key: string
+    label: string
+    milpTotal: number
+    bendersTotal: number
+    delta: number
+    shareOfNetDelta: number | null
+  }>
+  pairs: PairedCaseComparison[]
+  convergence: {
+    phaseCount: number
+    gapReachedCount: number
+    innerTimeLimitCount: number
+    stalledDuplicateCutCount: number
+    warmStartOptimalCount: number
+    recoveryOptimalCount: number
+    maxRecordedGap: number
+    maxGapCaseId: string
+    maxGapStage: string
+    runElapsedSeconds: number
+    runElapsedLabel: string
+    statusScope: string
+  }
+  evidenceBoundary: string
 }
 
 export interface AnimationManifest {

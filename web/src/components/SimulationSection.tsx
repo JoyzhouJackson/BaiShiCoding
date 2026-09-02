@@ -73,7 +73,7 @@ export default function SimulationSection({ cases, selectedCaseId, onSelectCase,
         index="04"
         kicker="同步决策回放"
         title="同一案例、同一时钟、三联网络动画"
-        description="MILP面板还原每次保存的完整计划快照；另外两幅仅验证三联组件，始终显示模拟水印。"
+        description="MILP与Benders面板分别还原各自保存的真实计划快照；强化学习尚未完成实验，继续使用带水印的组件占位。"
       />
       <div className="simulation-toolbar">
         <label>回放案例<select value={selectedCaseId} onChange={(event) => onSelectCase(event.target.value)}>{cases.map((item) => <option key={item.caseId} value={item.caseId}>{item.caseId} · {item.categoryLabel}{item.eventHour == null ? '' : ` @ ${item.eventHour}h`}</option>)}</select></label>
