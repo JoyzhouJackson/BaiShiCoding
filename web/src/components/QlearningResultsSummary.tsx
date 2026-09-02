@@ -32,11 +32,6 @@ export default function QlearningResultsSummary({ data }: { data: ComparisonData
         <article><span>完整进程时间</span><b>{duration(diagnostics.meanCaseProcessSeconds)}</b><small>包含候选尝试、读写与验证</small></article>
       </div>
 
-      <div className="q-method-note">
-        <b>一张上层Q表，不是两张Q表</b>
-        <p>上层Q表选择组合规则，班车解码器生成具体任务，下层LP决定每批货物使用哪些行程以及分配多少吨。</p>
-      </div>
-
       <div className="q-learning-mechanics">
         <article>
           <header><span>Q-TABLE ROWS</span><h3>每一行：5维离散状态</h3></header>

@@ -48,8 +48,13 @@ try {
     Push-Location $workspaceRoot
     try {
         & $npx --yes --package '@playwright/cli' playwright-cli "-s=$session" close 2>$null | Out-Null
-        & $npx --yes --package '@playwright/cli' playwright-cli "-s=$session" open $url | Out-Null
-        if ($LASTEXITCODE -ne 0) { throw 'Playwright browser startup failed.' }
+        $browserStarted = $false
+        foreach ($attempt in 1..3) {
+            & $npx --yes --package '@playwright/cli' playwright-cli "-s=$session" open $url | Out-Null
+            if ($LASTEXITCODE -eq 0) { $browserStarted = $true; break }
+            Start-Sleep -Seconds 1
+        }
+        if (-not $browserStarted) { throw 'Playwright browser startup failed after 3 attempts.' }
 
         & $npx --yes --package '@playwright/cli' playwright-cli "-s=$session" run-code "--filename=$browserCode"
         if ($LASTEXITCODE -ne 0) { throw 'Playwright page checks failed.' }

@@ -78,6 +78,18 @@ export default function FoundationSection({ foundation, cases, selectedCaseId, o
           </div>
         </ExpandableCard>
         <ExpandableCard icon="▦" title="统一实验设定" summary="网络、需求生成、仓储与完整成本参数，对12个案例保持一致。">
+          <h4 className="embedded-case-title">查看当前案例</h4>
+          <label className="field-label" htmlFor="foundation-case">当前案例
+            <select id="foundation-case" value={selected.caseId} onChange={(event) => onSelectCase(event.target.value)}>
+              {cases.map((item) => <option key={item.caseId} value={item.caseId}>{item.caseId} · {item.categoryLabel}</option>)}
+            </select>
+          </label>
+          <div className="case-stats">
+            <span><b>{selected.eventHour == null ? '—' : `${selected.eventHour}h`}</b>异常时刻</span>
+            <span><b>{selected.forecastTotal.toFixed(1)}</b>预测吨位</span>
+            <span><b>{selected.actualTotal.toFixed(1)}</b>实际吨位</span>
+            <span><b>{(selected.forecastErrorRate * 100).toFixed(1)}%</b>预测偏差</span>
+          </div>
           <FactList onExplain={onExplain} rows={[
             ['网络规模', `${foundation.network.nodeCount}个节点、${foundation.network.undirectedEdgeCount}条双向物理连接`],
             ['测试案例', `${foundation.datasets.activeTestCases}个统一口径案例，正常、插单、撤单、故障各${foundation.datasets.activePerCategory}个`],
@@ -90,24 +102,6 @@ export default function FoundationSection({ foundation, cases, selectedCaseId, o
             ['方案变更成本', `以上一版方案成本的${Number(costs.balanced_change_penalty_ratio) * 100}%为尺度；班车调整与货物改道各占${Number(costs.trip_change_weight) * 100}%和${Number(costs.cargo_change_weight) * 100}%`],
           ]} />
           <button className="inline-help" type="button" onClick={() => onExplain('预测量与实际量', '0、6、12小时分别给出该批预测总量。实际总量围绕各批预测量±20%波动，再调整起点—终点—产品构成。实际量在固定滚动点核实，因此预测误差本身不额外触发事件调度。')}>为什么预测偏差不算异常？</button>
-        </ExpandableCard>
-      </div>
-
-      <article className="case-detail-panel">
-        <div className="case-detail-heading">
-          <div><span className="eyebrow">CURRENT CASE</span><h3>查看当前案例</h3><p>上面的规则和参数保持不变；这里只切换具体案例的需求、节点参数和异常信息。</p></div>
-          <label className="field-label" htmlFor="foundation-case">当前案例
-            <select id="foundation-case" value={selected.caseId} onChange={(event) => onSelectCase(event.target.value)}>
-              {cases.map((item) => <option key={item.caseId} value={item.caseId}>{item.caseId} · {item.categoryLabel}</option>)}
-            </select>
-          </label>
-        </div>
-        <div className="case-stats">
-          <span><b>{selected.eventHour == null ? '—' : `${selected.eventHour}h`}</b>异常时刻</span>
-          <span><b>{selected.forecastTotal.toFixed(1)}</b>预测吨位</span>
-          <span><b>{selected.actualTotal.toFixed(1)}</b>实际吨位</span>
-          <span><b>{(selected.forecastErrorRate * 100).toFixed(1)}%</b>预测偏差</span>
-        </div>
           {detailError && <p className="error-note">{detailError}</p>}
           {!detail && !detailError && <p className="loading-note">正在按需读取案例明细…</p>}
           {detail && (
@@ -123,7 +117,8 @@ export default function FoundationSection({ foundation, cases, selectedCaseId, o
               <p className="micro-note">共 {detail.demands.length} 个“起点—终点—产品类型—到货时点”需求批次；同一批次允许在多条合法行程间分配货量。</p>
             </div>
           )}
-      </article>
+        </ExpandableCard>
+      </div>
     </section>
   )
 }

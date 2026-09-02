@@ -26,8 +26,12 @@ for (const text of ['3 个解决方案', '统一口径测试', '72 小时同步�
   await expectText(text)
 }
 if (await page.getByText('数据清单', { exact: true }).count()) failures.push('仍显示“数据清单”入口')
-await expectText('查看当前案例')
 await expectText('同一问题，三种解决方案')
+const experimentCard = page.locator('.foundation-card').filter({ hasText: '统一实验设定' })
+await experimentCard.getByRole('button', { name: '展开完整信息 ↓' }).click()
+await expectVisible(experimentCard.getByText('查看当前案例', { exact: true }), '统一实验设定中的当前案例')
+await expectVisible(experimentCard.getByLabel('当前案例'), '统一实验设定中的案例选择器')
+if (await page.getByText('上面的规则和参数保持不变；这里只切换具体案例的需求、节点参数和异常信息。', { exact: true }).count()) failures.push('仍显示修改过程提示语')
 await page.screenshot({ path: 'output/playwright/desktop-home.png', fullPage: false })
 
 const milpTab = page.getByRole('tab', { name: '01MILP联合决策' })
@@ -46,21 +50,16 @@ await expectText('列生成定价子问题')
 
 const qTab = page.getByRole('tab', { name: '03Q-learning—LP两层混合方法' })
 await qTab.click()
-await expectText('一张上层Q表，不是两张Q表')
 await expectText('每一行：5维离散状态')
 await expectText('每一列：9种组合规则')
 await expectText('Q值如何更新')
-await page.locator('.q-keyword-links').getByRole('button', { name: '5维离散状态' }).click()
-await expectText('状态示例')
-if (await page.locator('.drawer-table-scroll tbody tr').count() !== 5) failures.push('离散状态抽屉应显示5个状态维度')
-await page.screenshot({ path: 'output/playwright/desktop-state-drawer.png', fullPage: false })
-await page.getByRole('button', { name: '关闭详细解释' }).click()
-await page.locator('.q-keyword-links').getByRole('button', { name: '9种组合规则' }).click()
-if (await page.locator('.drawer-action-list li').count() !== 9) failures.push('组合规则抽屉应显示9个动作')
-await page.screenshot({ path: 'output/playwright/desktop-action-drawer.png', fullPage: false })
-await page.getByRole('button', { name: '关闭详细解释' }).click()
+if (await page.getByText('一张上层Q表，不是两张Q表', { exact: true }).count()) failures.push('仍显示已要求删除的Q表提示块')
 const actionCells = await page.locator('.q-action-matrix > span').count()
 if (actionCells !== 10) failures.push(`九种动作矩阵结构异常：应有1个空角格+9个动作格，实际${actionCells}个span`)
+const improvementColumns = await page.locator('.improvement-row').first().evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(' ').length)
+if (improvementColumns !== 2) failures.push(`缺点与改进方案应左右两栏显示，实际${improvementColumns}栏`)
+await page.locator('.improvement-card').scrollIntoViewIfNeeded()
+await page.screenshot({ path: 'output/playwright/desktop-improvements.png', fullPage: false })
 await page.getByText('每一行：5维离散状态', { exact: true }).scrollIntoViewIfNeeded()
 await page.screenshot({ path: 'output/playwright/desktop-q-table.png', fullPage: false })
 
@@ -92,6 +91,6 @@ if (failures.length) throw new Error(`网页验收失败：\n- ${failures.join('
 console.log(JSON.stringify({
   status: 'pass',
   checks: ['desktop layout', 'MILP event branches', 'Benders-CG flow', 'Q-table and 9 actions', 'six-column comparison', 'chart switch', 'mobile overflow', 'browser console'],
-  screenshots: ['desktop-home.png', 'desktop-milp-flow.png', 'desktop-state-drawer.png', 'desktop-action-drawer.png', 'desktop-q-table.png', 'desktop-comparison.png', 'mobile-q-table.png'],
+  screenshots: ['desktop-home.png', 'desktop-milp-flow.png', 'desktop-q-table.png', 'desktop-improvements.png', 'desktop-comparison.png', 'mobile-q-table.png'],
 }, null, 2))
 }

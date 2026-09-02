@@ -18,6 +18,11 @@ interface MethodExplorerProps {
 type ExplanationLevel = 'business' | 'algorithm' | 'math'
 const levelLabels: Record<ExplanationLevel, string> = { business: '业务解释', algorithm: '算法解释', math: '数学细节' }
 
+function splitLimitation(item: string) {
+  const [problem, improvement = ''] = item.replace(/^缺点：/, '').split('；改进：')
+  return { problem, improvement }
+}
+
 function StatusPill({ status, text }: { status: 'real' | 'mock' | 'planned'; text: string }) {
   return <span className={`status-pill ${status}`}>{status === 'real' ? '●' : '◌'} {text}</span>
 }
@@ -69,12 +74,6 @@ export default function MethodExplorer({ comparison, onExplain }: MethodExplorer
           <div><StatusPill status={method.dataStatus} text={method.statusText} /><h3>{method.label}</h3><p className="method-tagline"><ExplainableText text={method.tagline} onExplain={onExplain} /></p></div>
           <div className="why-box"><span>WHY THIS METHOD</span><p><ExplainableText text={method.why} onExplain={onExplain} /></p></div>
         </div>
-        {method.id === 'tabular-hrl' && <div className="q-keyword-links" aria-label="Q-learning详细解释入口">
-          <span>点击关键词查看详细计算与表示</span>
-          <button type="button" onClick={() => onExplain('5维离散状态', 'Q表每一行对应一个经过分箱的五维业务状态。')}>5维离散状态</button>
-          <button type="button" onClick={() => onExplain('9种组合规则', 'Q表每一列对应一种班车规则与货物规则的组合。')}>9种组合规则</button>
-        </div>}
-
         <div className="subsection-title numbered"><span><i>01</i> 做哪些决策：变量与核心约束对应表</span><small>从业务决策一路追溯到数学表达</small></div>
         <DecisionMap method={method} />
         <div className="subsection-title numbered"><span><i>02</i> 目标函数与每一项成本的含义</span><small>每项成本标明公式和关联决策</small></div>
@@ -101,7 +100,15 @@ export default function MethodExplorer({ comparison, onExplain }: MethodExplorer
         <div className="evidence-grid">
           <div className="verification-card"><span className="eyebrow">VERIFICATION</span><h4>正确性与验证</h4><ul>{method.verification.map((item) => <li key={item}>{item}</li>)}</ul></div>
           <div className="strength-card"><span className="eyebrow">STRENGTHS</span><h4>优势与适用范围</h4><ul>{method.advantages.map((item) => <li key={item}>{item}</li>)}</ul></div>
-          <div className="improvement-card"><span className="eyebrow">LIMITS & NEXT</span><h4>缺点与改进方案</h4><ul>{method.limitations.map((item) => <li key={item}>{item}</li>)}</ul></div>
+          <div className="improvement-card"><span className="eyebrow">LIMITS & NEXT</span><h4>缺点与改进方案</h4>
+            <div className="improvement-comparison" role="table" aria-label={`${method.label}缺点与改进方案对照`}>
+              <div className="improvement-head" role="row"><b role="columnheader">当前缺点</b><b role="columnheader">对应改进方案</b></div>
+              {method.limitations.map((item) => {
+                const pair = splitLimitation(item)
+                return <div className="improvement-row" role="row" key={item}><p role="cell">{pair.problem}</p><p role="cell">{pair.improvement}</p></div>
+              })}
+            </div>
+          </div>
         </div>
       </article>
     </section>
