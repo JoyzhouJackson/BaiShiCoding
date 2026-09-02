@@ -69,6 +69,11 @@ export default function MethodExplorer({ comparison, onExplain }: MethodExplorer
           <div><StatusPill status={method.dataStatus} text={method.statusText} /><h3>{method.label}</h3><p className="method-tagline"><ExplainableText text={method.tagline} onExplain={onExplain} /></p></div>
           <div className="why-box"><span>WHY THIS METHOD</span><p><ExplainableText text={method.why} onExplain={onExplain} /></p></div>
         </div>
+        {method.id === 'tabular-hrl' && <div className="q-keyword-links" aria-label="Q-learning详细解释入口">
+          <span>点击关键词查看详细计算与表示</span>
+          <button type="button" onClick={() => onExplain('5维离散状态', 'Q表每一行对应一个经过分箱的五维业务状态。')}>5维离散状态</button>
+          <button type="button" onClick={() => onExplain('9种组合规则', 'Q表每一列对应一种班车规则与货物规则的组合。')}>9种组合规则</button>
+        </div>}
 
         <div className="subsection-title numbered"><span><i>01</i> 做哪些决策：变量与核心约束对应表</span><small>从业务决策一路追溯到数学表达</small></div>
         <DecisionMap method={method} />

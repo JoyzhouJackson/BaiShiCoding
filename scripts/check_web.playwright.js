@@ -50,6 +50,15 @@ await expectText('一张上层Q表，不是两张Q表')
 await expectText('每一行：5维离散状态')
 await expectText('每一列：9种组合规则')
 await expectText('Q值如何更新')
+await page.locator('.q-keyword-links').getByRole('button', { name: '5维离散状态' }).click()
+await expectText('状态示例')
+if (await page.locator('.drawer-table-scroll tbody tr').count() !== 5) failures.push('离散状态抽屉应显示5个状态维度')
+await page.screenshot({ path: 'output/playwright/desktop-state-drawer.png', fullPage: false })
+await page.getByRole('button', { name: '关闭详细解释' }).click()
+await page.locator('.q-keyword-links').getByRole('button', { name: '9种组合规则' }).click()
+if (await page.locator('.drawer-action-list li').count() !== 9) failures.push('组合规则抽屉应显示9个动作')
+await page.screenshot({ path: 'output/playwright/desktop-action-drawer.png', fullPage: false })
+await page.getByRole('button', { name: '关闭详细解释' }).click()
 const actionCells = await page.locator('.q-action-matrix > span').count()
 if (actionCells !== 10) failures.push(`九种动作矩阵结构异常：应有1个空角格+9个动作格，实际${actionCells}个span`)
 await page.getByText('每一行：5维离散状态', { exact: true }).scrollIntoViewIfNeeded()
@@ -83,6 +92,6 @@ if (failures.length) throw new Error(`网页验收失败：\n- ${failures.join('
 console.log(JSON.stringify({
   status: 'pass',
   checks: ['desktop layout', 'MILP event branches', 'Benders-CG flow', 'Q-table and 9 actions', 'six-column comparison', 'chart switch', 'mobile overflow', 'browser console'],
-  screenshots: ['desktop-home.png', 'desktop-milp-flow.png', 'desktop-q-table.png', 'desktop-comparison.png', 'mobile-q-table.png'],
+  screenshots: ['desktop-home.png', 'desktop-milp-flow.png', 'desktop-state-drawer.png', 'desktop-action-drawer.png', 'desktop-q-table.png', 'desktop-comparison.png', 'mobile-q-table.png'],
 }, null, 2))
 }

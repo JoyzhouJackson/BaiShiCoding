@@ -1,4 +1,5 @@
 import type { ComparisonData } from '../data/types'
+import { qCargoRules, qStateRows, qVehicleRules } from '../data/qlearningMechanics'
 
 function percent(value: number, digits = 2) {
   return `${value > 0 ? '+' : ''}${(value * 100).toFixed(digits)}%`
@@ -12,26 +13,6 @@ function duration(seconds: number) {
 function number(value: number) {
   return value.toLocaleString('zh-CN', { maximumFractionDigits: 0 })
 }
-
-const stateRows = [
-  ['时间阶段', '当前决策时段', '0小时=0；3–9小时=1；12小时以后=2'],
-  ['运力压力', '总货量÷（班车车辆数×20吨）', '≤0.8为0；0.8–1.0为1；>1.0为2'],
-  ['服务风险', '服务不达标吨数÷服务统计总吨数', '≤0.2为0；0.2–0.4为1；>0.4为2'],
-  ['车辆紧张度', '未来自有班车数÷当前全网可用自有车数', '≤0.8为0；0.8–1.0为1；>1.0为2'],
-  ['异常类型', '当前已知异常', '无/插单/撤单/故障=0/1/2/3'],
-]
-
-const vehicleRules = [
-  ['稳定优先', '优先保留上一版未来班车，减少方案变化'],
-  ['成本优先', '优先单位需求运力成本较低的班车任务'],
-  ['服务优先', '优先需求压力大、发车早且易保障服务的任务'],
-]
-
-const cargoRules = [
-  ['成本优先', '优先每吨运输、装卸、留仓和延误成本较低的行程'],
-  ['时限优先', '对延误和等待施加更高排序惩罚'],
-  ['灵活性优先', '减少换车并偏好班次较多、替代性较强的服务'],
-]
 
 export default function QlearningResultsSummary({ data }: { data: ComparisonData }) {
   const analysis = data.threeMethodAnalysis
@@ -60,19 +41,19 @@ export default function QlearningResultsSummary({ data }: { data: ComparisonData
         <article>
           <header><span>Q-TABLE ROWS</span><h3>每一行：5维离散状态</h3></header>
           <div className="q-table-scroll"><table><thead><tr><th>维度</th><th>计算</th><th>编码</th></tr></thead><tbody>
-            {stateRows.map((row) => <tr key={row[0]}>{row.map((cell) => <td key={cell}>{cell}</td>)}</tr>)}
+            {qStateRows.map((row) => <tr key={row.dimension}><td>{row.dimension}</td><td>{row.calculation}</td><td>{row.encoding}</td></tr>)}
           </tbody></table></div>
           <p className="q-state-example"><code>2|0|0|1|3</code>：12小时以后、运力压力低、服务风险低、车辆紧张度中、车辆故障。</p>
         </article>
         <article>
           <header><span>Q-TABLE COLUMNS</span><h3>每一列：9种组合规则</h3></header>
           <div className="q-rule-groups">
-            <div><b>3种班车规则</b>{vehicleRules.map(([name, meaning]) => <p key={name}><strong>{name}</strong>{meaning}</p>)}</div>
-            <div><b>3种货物规则</b>{cargoRules.map(([name, meaning]) => <p key={name}><strong>{name}</strong>{meaning}</p>)}</div>
+            <div><b>3种班车规则</b>{qVehicleRules.map((rule) => <p key={rule.name}><strong>{rule.name}</strong>{rule.meaning}</p>)}</div>
+            <div><b>3种货物规则</b>{qCargoRules.map((rule) => <p key={rule.name}><strong>{rule.name}</strong>{rule.meaning}</p>)}</div>
           </div>
           <div className="q-action-matrix" aria-label="九种Q表动作">
-            <span />{cargoRules.map(([name]) => <b key={name}>{name}</b>)}
-            {vehicleRules.flatMap(([vehicle]) => [<b key={`${vehicle}-head`}>{vehicle}</b>, ...cargoRules.map(([cargo]) => <span key={`${vehicle}-${cargo}`}>{vehicle.replace('优先', '')}＋{cargo.replace('优先', '')}</span>)])}
+            <span />{qCargoRules.map((rule) => <b key={rule.name}>{rule.name}</b>)}
+            {qVehicleRules.flatMap((vehicle) => [<b key={`${vehicle.name}-head`}>{vehicle.name}</b>, ...qCargoRules.map((cargo) => <span key={`${vehicle.name}-${cargo.name}`}>{vehicle.name.replace('优先', '')}＋{cargo.name.replace('优先', '')}</span>)])}
           </div>
         </article>
       </div>
