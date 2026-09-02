@@ -58,8 +58,8 @@ export default function MilpResultsDashboard({ data }: { data: ComparisonData })
     const parts = [
       ['运输', 'transportCost', '#183a58'], ['装卸', 'handlingCost', '#2d6689'],
       ['留仓', 'inventoryCost', '#70a78f'], ['中转', 'transferCost', '#a1be8d'],
-      ['延误', 'delayCost', '#e97935'], ['服务短缺', 'serviceShortfallCost', '#d95848'],
-      ['变更', 'changeCost', '#8269a8'],
+      ['延误', 'delayCost', '#e97935'], ['服务不达标', 'serviceShortfallCost', '#d95848'],
+      ['方案变更', 'changeCost', '#8269a8'],
     ] as const
     return {
       animationDuration: 500,
@@ -159,7 +159,7 @@ export default function MilpResultsDashboard({ data }: { data: ComparisonData })
 
   return (
     <section className="milp-results-dashboard" aria-labelledby="milp-results-title">
-      <div className="subsection-title"><span id="milp-results-title">真实实验结果</span><small>网页组件复现图2、图3、图4与图6；支持悬停读取精确值</small></div>
+      <div className="subsection-title"><span id="milp-results-title">实验结果</span><small>12个统一口径案例</small></div>
       <div className="experiment-summary">
         <article><span>完成并验证</span><b>{summary?.completedCases ?? real.length}/{summary?.validatedCases ?? real.filter((row) => row.validationStatus === 'pass').length}</b><small>正式案例 / 独立校验通过</small></article>
         <article><span>Gurobi 调用</span><b>{summary?.gurobiCalls ?? '—'}</b><small>日初＋6小时滚动＋事件重调度</small></article>
@@ -167,10 +167,10 @@ export default function MilpResultsDashboard({ data }: { data: ComparisonData })
         <article className="inferred-card"><span>实际并行耗时</span><b>{summary?.parallelElapsedLabel ?? '—'}</b><small>{summary?.parallelElapsedIsInferred ? '时间戳推算 · 含写盘与独立验证' : '程序直接记录'}</small></article>
       </div>
       {summary?.parallelElapsedIsInferred && <details className="evidence-note"><summary>并行耗时证据与口径</summary><p>{summary.parallelElapsedEvidence} 该值用于描述本次实验墙钟耗时，不参与算法性能排名。</p></details>}
-      <article className="result-figure"><header><span>图 2</span><div><h4>12个案例的总成本与分项构成</h4><p>横向堆叠后可直接判断成本差异来自运输、延期、服务短缺还是方案变更。</p></div></header><ChartCanvas option={costOption} label="12个MILP案例的成本分项堆叠图" height={500} /></article>
-      <article className="result-figure"><header><span>图 3</span><div><h4>三类产品准时率与软目标</h4><p>低于目标并不代表货物未送达；模型允许延期，并同时支付延误与服务短缺惩罚。</p></div></header><ChartCanvas option={serviceOption} label="加急普通经济三类产品准时率图" height={480} /></article>
-      <article className="result-figure"><header><span>图 4</span><div><h4>求解性能与达到时间上限的调用</h4><p>上图为每个案例的累计Gurobi时间；下图只显示达到300秒上限的调用及其最终Gap。</p></div></header><ChartCanvas option={performanceOption} label="MILP累计运行时间与时间上限调用Gap图" height={560} /><p className="figure-footnote">共 {summary?.timeLimitCalls ?? data.solverLimitHits?.length ?? 0} 次调用达到时间上限；达到上限但已有可行解时仍可继续滚动，不能据此宣称该次已证明全局最优。</p></article>
-      <article className="result-figure"><header><span>图 6</span><div><h4>单例节点时间线：test_urgent_insert_002</h4><p>15小时紧急插单后的计划快照；仓储不设容量上限，留仓量仍产生库存成本，处理能力利用率保留硬上限。</p></div></header>{heatmapOption ? <ChartCanvas option={heatmapOption} label="紧急插单示例的节点留仓量和处理能力利用率热力图" height={590} /> : <div className="chart-loading">{animationError ? `热力图数据读取失败：${animationError}` : '正在按需读取动画快照…'}</div>}</article>
+      <article className="result-figure"><header><div><h4>12个案例的总成本与分项构成</h4><p>横向堆叠后可直接判断成本差异来自运输、延期、服务不达标还是方案变更。</p></div></header><ChartCanvas option={costOption} label="12个MILP案例的成本分项堆叠图" height={500} /></article>
+      <article className="result-figure"><header><div><h4>三类产品准时率与服务目标</h4><p>低于目标时记录不达标吨数并计入惩罚；所有未撤销货物仍须最终送达。</p></div></header><ChartCanvas option={serviceOption} label="加急普通经济三类产品准时率图" height={480} /></article>
+      <article className="result-figure"><header><div><h4>求解性能与达到时间上限的调用</h4><p>上图为每个案例的累计Gurobi时间；下图只显示达到300秒上限的调用及其最终Gap。</p></div></header><ChartCanvas option={performanceOption} label="MILP累计运行时间与时间上限调用Gap图" height={560} /><p className="figure-footnote">12个日初规划均达到300秒上限；96次调用中共有 {summary?.timeLimitCalls ?? data.solverLimitHits?.length ?? 0} 次达到上限。12个案例最后一次滚动求解均为optimal，但该状态只对应当次剩余时域问题。</p></article>
+      <article className="result-figure"><header><div><h4>节点留仓量与处理能力利用率示例</h4><p>示例固定采用test_urgent_insert_002，不随案例选择变化。留仓不仅可能来自处理能力，也可能来自班车运力、发车时机、中转衔接和成本权衡。</p></div></header>{heatmapOption ? <ChartCanvas option={heatmapOption} label="紧急插单示例的节点留仓量和处理能力利用率热力图" height={590} /> : <div className="chart-loading">{animationError ? `热力图数据读取失败：${animationError}` : '正在按需读取动画快照…'}</div>}</article>
     </section>
   )
 }

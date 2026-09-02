@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 .idea/
 .playwright-cli/
+output/playwright/
 venv/
 results/
 data/archive/

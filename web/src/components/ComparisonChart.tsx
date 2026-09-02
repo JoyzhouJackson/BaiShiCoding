@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef } from 'react'
 import * as echarts from 'echarts/core'
 import { BoxplotChart, LineChart } from 'echarts/charts'
-import { DataZoomComponent, GraphicComponent, GridComponent, LegendComponent, MarkAreaComponent, TooltipComponent } from 'echarts/components'
+import { DataZoomComponent, GridComponent, LegendComponent, MarkAreaComponent, TooltipComponent } from 'echarts/components'
 import { CanvasRenderer } from 'echarts/renderers'
 import { boxStats, groupByMethod, metricValue, type MetricKey } from '../data/chartUtils'
 import type { ComparisonMetric } from '../data/types'
 
-echarts.use([LineChart, BoxplotChart, GridComponent, TooltipComponent, LegendComponent, DataZoomComponent, MarkAreaComponent, GraphicComponent, CanvasRenderer])
+echarts.use([LineChart, BoxplotChart, GridComponent, TooltipComponent, LegendComponent, DataZoomComponent, MarkAreaComponent, CanvasRenderer])
 
 interface ComparisonChartProps {
   metrics: ComparisonMetric[]
@@ -21,21 +21,13 @@ export default function ComparisonChart({ metrics, metricKey, chartType, unit }:
   const ref = useRef<HTMLDivElement>(null)
   const option = useMemo(() => {
     const methodIds = ['milp', 'benders-cg', 'tabular-hrl'] as const
-    const baseLabels = ['MILP', 'Benders＋CG', '分层Q学习']
-    const statuses = methodIds.map((methodId) => metrics.find((item) => item.methodId === methodId)?.dataStatus ?? 'planned')
-    const labels = baseLabels.map((label, index) => `${label}（${statuses[index] === 'real' ? '真实' : statuses[index] === 'mock' ? '模拟' : '待实验'}）`)
-    const hasMock = statuses.includes('mock')
-    const mockCount = statuses.filter((status) => status === 'mock').length
+    const labels = ['MILP', 'Benders＋CG', 'Q-learning—LP']
     const base = {
       animationDuration: 500,
       color: colors,
       grid: { left: 66, right: 28, top: 64, bottom: 80 },
       tooltip: { trigger: chartType === 'line' ? 'axis' : 'item' },
       legend: { top: 10, textStyle: { color: '#334d62' } },
-      graphic: hasMock ? [{
-        type: 'text', right: 18, bottom: 16, rotation: -0.18, silent: true,
-        style: { text: `${mockCount}种方法为模拟占位，不代表实验结果`, fill: 'rgba(211, 92, 55, .16)', font: '700 18px sans-serif' },
-      }] : [],
     }
     if (chartType === 'box') {
       const grouped = groupByMethod(metrics, metricKey)
@@ -89,6 +81,5 @@ export default function ComparisonChart({ metrics, metricKey, chartType, unit }:
     return () => { observer.disconnect(); chart.dispose() }
   }, [option])
 
-  const realLabels = [...new Set(metrics.filter((item) => item.dataStatus === 'real').map((item) => item.methodLabel))]
-  return <div className="comparison-chart" ref={ref} role="img" aria-label={`${chartType === 'line' ? '逐案例折线图' : '方法箱型图'}，真实方法为${realLabels.join('和')}`} />
+  return <div className="comparison-chart" ref={ref} role="img" aria-label={`${chartType === 'line' ? '逐案例折线图' : '方法箱型图'}，比较MILP、Benders列生成和Q-learning—LP`} />
 }

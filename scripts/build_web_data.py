@@ -33,7 +33,7 @@ CATEGORY_LABELS = {
 METHODS = (
     ("milp", "MILP联合决策", "real"),
     ("benders-cg", "Benders分解＋列生成", "real"),
-    ("tabular-hrl", "两层表格Q-learning", "real"),
+    ("tabular-hrl", "Q-learning—LP两层混合方法", "real"),
 )
 
 COST_COMPONENTS = (
@@ -42,8 +42,8 @@ COST_COMPONENTS = (
     ("inventory_holding", "留仓库存成本", "inventoryCost"),
     ("transfer", "中转成本", "transferCost"),
     ("delay", "延误成本", "delayCost"),
-    ("service_shortfall", "服务短缺成本", "serviceShortfallCost"),
-    ("cumulative_change", "变更成本", "changeCost"),
+    ("service_shortfall", "服务不达标惩罚", "serviceShortfallCost"),
+    ("cumulative_change", "方案变更成本", "changeCost"),
 )
 
 # This wall-clock interval was reconstructed from the first Gurobi log creation
@@ -777,7 +777,7 @@ def main() -> None:
         ))
         qlearning_metrics.append(solution_metric(
             qlearning_solution, qlearning_validation,
-            method_id="tabular-hrl", method_label="两层表格Q-learning", category=category,
+            method_id="tabular-hrl", method_label="Q-learning—LP两层混合方法", category=category,
         ))
 
         animation = aggregate_animation(solution, case)

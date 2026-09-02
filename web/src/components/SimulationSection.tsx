@@ -73,7 +73,7 @@ export default function SimulationSection({ cases, selectedCaseId, onSelectCase,
         index="04"
         kicker="同步决策回放"
         title="同一案例、同一时钟、三联网络动画"
-        description="三个面板分别还原MILP、Benders-CG和Q-learning保存的真实计划快照；拖动共同时间轴可比较班车、货流、节点车辆和积压变化。"
+        description="三个面板分别还原MILP、Benders-CG和Q-learning保存的计划快照；拖动共同时间轴可比较班车、货流、节点车辆和积压变化。"
       />
       <div className="simulation-toolbar">
         <label>回放案例<select value={selectedCaseId} onChange={(event) => onSelectCase(event.target.value)}>{cases.map((item) => <option key={item.caseId} value={item.caseId}>{item.caseId} · {item.categoryLabel}{item.eventHour == null ? '' : ` @ ${item.eventHour}h`}</option>)}</select></label>
@@ -101,7 +101,7 @@ export default function SimulationSection({ cases, selectedCaseId, onSelectCase,
           <div className="network-triptych">
             {panel('milp', 'MILP联合决策')}
             {panel('benders-cg', 'Benders＋列生成')}
-            {panel('tabular-hrl', '两层表格Q-learning')}
+            {panel('tabular-hrl', 'Q-learning—LP')}
           </div>
           <aside className="moment-explanation">
             <div><span className="eyebrow">T = {slot * data.slotHours} HOURS</span><h3>{currentStep ? (currentStep.decisionType === 'event' ? '异常触发重调度' : '固定滚动更新') : '执行当前已发布方案'}</h3></div>
@@ -110,7 +110,7 @@ export default function SimulationSection({ cases, selectedCaseId, onSelectCase,
               <div><dt>计划快照</dt><dd>{snapshot.snapshotId}</dd></div>
               <div><dt>节点积压</dt><dd>{totalInventory.toFixed(1)} 等效吨</dd></div>
               <div><dt>最高处理利用率</dt><dd>{maxUtilNode?.nodeId ?? '—'} · {((maxUtilNode?.state?.handlingUtilization ?? 0) * 100).toFixed(0)}%</dd></div>
-              <div><dt>本次方案变化</dt><dd>{currentStep ? `变更成本 ${currentStep.changeCost.toFixed(1)}` : '沿用上一版方案'}</dd></div>
+              <div><dt>本次方案变化</dt><dd>{currentStep ? `方案变更成本 ${currentStep.changeCost.toFixed(1)}` : '沿用上一版方案'}</dd></div>
             </dl>
             <p>已执行班车和货物流保持锁定；当前快照只重排决策时点以后的班车开行、车辆来源与货物路线。</p>
           </aside>

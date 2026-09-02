@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "check:web": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File ../scripts/check_web.ps1"
   },
   "dependencies": {
     "echarts": "^6.0.0",

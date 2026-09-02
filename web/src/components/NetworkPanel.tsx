@@ -28,7 +28,7 @@ export default function NetworkPanel({ methodId, label, dataStatus, data, snapsh
 
   return (
     <article className={`network-panel ${dataStatus === 'mock' ? 'is-mock' : ''}`}>
-      <div className="network-panel-head"><div><span>{dataStatus === 'real' ? 'REAL REPLAY' : 'MOCK PREVIEW'}</span><h3>{label}</h3></div><b className={dataStatus}>{dataStatus === 'real' ? '真实方案' : '模拟占位'}</b></div>
+      <div className="network-panel-head"><div><h3>{label}</h3></div>{dataStatus === 'mock' && <b className="mock">模拟占位</b>}</div>
       <div className="network-canvas">
         {dataStatus === 'mock' && <div className="animation-watermark">模拟占位<br /><small>不代表实验结果</small></div>}
         <svg viewBox="0 0 730 250" role="img" aria-label={`${label}在第${slot * data.slotHours}小时的网络决策图`}>
