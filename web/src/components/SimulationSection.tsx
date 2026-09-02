@@ -73,7 +73,7 @@ export default function SimulationSection({ cases, selectedCaseId, onSelectCase,
         index="04"
         kicker="同步决策回放"
         title="同一案例、同一时钟、三联网络动画"
-        description="MILP与Benders面板分别还原各自保存的真实计划快照；强化学习尚未完成实验，继续使用带水印的组件占位。"
+        description="三个面板分别还原MILP、Benders-CG和Q-learning保存的真实计划快照；拖动共同时间轴可比较班车、货流、节点车辆和积压变化。"
       />
       <div className="simulation-toolbar">
         <label>回放案例<select value={selectedCaseId} onChange={(event) => onSelectCase(event.target.value)}>{cases.map((item) => <option key={item.caseId} value={item.caseId}>{item.caseId} · {item.categoryLabel}{item.eventHour == null ? '' : ` @ ${item.eventHour}h`}</option>)}</select></label>
@@ -101,7 +101,7 @@ export default function SimulationSection({ cases, selectedCaseId, onSelectCase,
           <div className="network-triptych">
             {panel('milp', 'MILP联合决策')}
             {panel('benders-cg', 'Benders＋列生成')}
-            {panel('tabular-hrl', '分层表格强化学习')}
+            {panel('tabular-hrl', '两层表格Q-learning')}
           </div>
           <aside className="moment-explanation">
             <div><span className="eyebrow">T = {slot * data.slotHours} HOURS</span><h3>{currentStep ? (currentStep.decisionType === 'event' ? '异常触发重调度' : '固定滚动更新') : '执行当前已发布方案'}</h3></div>

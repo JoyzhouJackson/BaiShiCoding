@@ -120,6 +120,7 @@ export interface ComparisonData {
   metrics: ComparisonMetric[]
   mockPolicy: string
   pairedAnalysis?: PairedAnalysis
+  threeMethodAnalysis?: ThreeMethodAnalysis
   experimentSummary?: {
     completedCases: number
     validatedCases: number
@@ -139,6 +140,63 @@ export interface ComparisonData {
     runtimeSeconds: number
     hour: number
   }>
+}
+
+export interface MethodResultSummary {
+  methodId: MethodId
+  label: string
+  validatedCases: number
+  meanCost: number
+  meanRuntimeSeconds: number
+  meanPairwiseGapToMilp: number
+  meanMissionTasks: number
+  meanExternalMissionTasks: number
+}
+
+export interface ThreeMethodAnalysis {
+  caseCount: number
+  methodCaseValidationPasses: number
+  methods: MethodResultSummary[]
+  categories: Array<{
+    category: Category
+    label: string
+    milp: { meanCost: number; meanPairwiseGapToMilp: number }
+    'benders-cg': { meanCost: number; meanPairwiseGapToMilp: number }
+    'tabular-hrl': { meanCost: number; meanPairwiseGapToMilp: number }
+  }>
+  qlearningGapToBendersCg: number
+  qlearningCostDrivers: Array<{
+    key: string
+    label: string
+    milpMean: number
+    qlearningMean: number
+    delta: number
+    shareOfGap: number | null
+  }>
+  qlearningDiagnostics: {
+    convergedSeeds: number
+    totalSeeds: number
+    trainTransitions: number
+    validationTransitions: number
+    learnedStateCount: number
+    testUniqueStateCount: number
+    capacityBinsUsed: number
+    serviceRiskBinsUsed: number
+    decisionCount: number
+    shieldChangedDecisions: number
+    meanMissionTasks: number
+    milpMeanMissionTasks: number
+    meanExternalMissionTasks: number
+    milpMeanExternalMissionTasks: number
+    residualGapIfTransportDeltaRemoved: number
+    experiencePreparationSeconds: number
+    fiveSeedTrainingSeconds: number
+    validationBatchSeconds: number
+    testBatchSeconds: number
+    meanCaseProcessSeconds: number
+    caseProcessSeconds: Record<string, number>
+  }
+  runtimeCaveat: string
 }
 
 export interface PairedCaseComparison {

@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-import hashlib
 import json
-import math
 import shutil
 import sys
 from collections import defaultdict
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -19,6 +18,8 @@ from freight_opt.config import load_config  # noqa: E402
 RESULT_DIR = ROOT / "results" / "gurobi_v6_12" / "test"
 BENDERS_RESULT_DIR = ROOT / "results" / "benders_cg_v6_12" / "test"
 BENDERS_MANIFEST = ROOT / "results" / "benders_cg_v6_12" / "run_manifest.json"
+QLEARNING_RESULT_DIR = ROOT / "results" / "qlearning_v1" / "test"
+QLEARNING_ROOT = ROOT / "results" / "qlearning_v1"
 CASE_ROOT = ROOT / "data" / "frozen" / "test"
 ACTIVE_INDEX = ROOT / "data" / "frozen" / "active_test_v6_12.json"
 OUTPUT_ROOT = ROOT / "web" / "public" / "data"
@@ -32,7 +33,7 @@ CATEGORY_LABELS = {
 METHODS = (
     ("milp", "MILP联合决策", "real"),
     ("benders-cg", "Benders分解＋列生成", "real"),
-    ("tabular-hrl", "分层表格强化学习", "mock"),
+    ("tabular-hrl", "两层表格Q-learning", "real"),
 )
 
 COST_COMPONENTS = (
@@ -65,23 +66,6 @@ def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as stream:
         json.dump(payload, stream, ensure_ascii=False, separators=(",", ":"))
-
-
-def stable_unit(*parts: str) -> float:
-    digest = hashlib.sha256("|".join(parts).encode("utf-8")).digest()
-    number = int.from_bytes(digest[:8], "big") / float(2**64 - 1)
-    return 2.0 * number - 1.0
-
-
-def mock_metric(method_id: str, case_id: str, metric: str, value: float | None) -> float | None:
-    if value is None:
-        return None
-    unit = stable_unit("20260901", method_id, case_id, metric)
-    if metric.endswith("OnTimeRate"):
-        return min(1.0, max(0.0, value + 0.005 * unit))
-    if metric in {"changedMissionTasks", "reroutedTons"}:
-        return max(0.0, value * (1.0 + 0.08 * unit))
-    return max(0.0, value * (1.0 + 0.04 * unit))
 
 
 def solution_runtime(solution: dict[str, Any]) -> float:
@@ -122,11 +106,19 @@ def solution_metric(
         "standardOnTimeRate": rates.get("standard", {}).get("on_time_rate"),
         "economyOnTimeRate": rates.get("economy", {}).get("on_time_rate"),
         "changedMissionTasks": sum(
-            float(step.get("change_metrics", {}).get("changed_future_mission_tasks") or 0.0)
+            float(
+                step.get("change_metrics", {}).get("changed_future_mission_tasks")
+                or step.get("change_metrics", {}).get("trip_delta")
+                or 0.0
+            )
             for step in solution["rolling_steps"]
         ),
         "reroutedTons": sum(
-            float(step.get("change_metrics", {}).get("rerouted_previously_planned_tons") or 0.0)
+            float(
+                step.get("change_metrics", {}).get("rerouted_previously_planned_tons")
+                or step.get("change_metrics", {}).get("cargo_rerouted_tons")
+                or 0.0
+            )
             for step in solution["rolling_steps"]
         ),
         "caseStatus": solution["status"],
@@ -267,14 +259,254 @@ def build_paired_analysis(
     }
 
 
+def qlearning_wall_timings() -> dict[str, Any]:
+    journal_path = QLEARNING_ROOT / "run_journal.jsonl"
+    events = [
+        json.loads(line)
+        for line in journal_path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    pipeline_starts = [
+        index for index, event in enumerate(events)
+        if event.get("event") == "stage_update"
+        and event.get("stage") == "pipeline"
+        and event.get("status") == "running"
+    ]
+    run_events = events[pipeline_starts[-1]:]
+
+    def stage_seconds(stage: str) -> float:
+        starts = [
+            event for event in run_events
+            if event.get("stage") == stage and event.get("status") == "running"
+        ]
+        finishes = [
+            event for event in run_events
+            if event.get("stage") == stage and event.get("status") == "pass"
+        ]
+        if not starts or not finishes:
+            return 0.0
+        return (
+            datetime.fromisoformat(finishes[-1]["timestamp_utc"])
+            - datetime.fromisoformat(starts[0]["timestamp_utc"])
+        ).total_seconds()
+
+    starts: dict[tuple[str, int], datetime] = {}
+    case_seconds: dict[str, float] = {}
+    for event in run_events:
+        if event.get("split") != "test" or "case_id" not in event:
+            continue
+        key = (str(event["case_id"]), int(event.get("attempt", 1)))
+        if event.get("event") == "case_start":
+            starts[key] = datetime.fromisoformat(event["timestamp_utc"])
+        elif event.get("event") == "case_finish" and event.get("exit_code") == 0 and key in starts:
+            case_seconds[key[0]] = (
+                datetime.fromisoformat(event["timestamp_utc"]) - starts[key]
+            ).total_seconds()
+    return {
+        "experiencePreparationSeconds": stage_seconds("prepare_experience"),
+        "fiveSeedTrainingSeconds": stage_seconds("train_seeds"),
+        "validationBatchSeconds": stage_seconds("validation_cases"),
+        "testBatchSeconds": stage_seconds("test_cases"),
+        "meanCaseProcessSeconds": sum(case_seconds.values()) / len(case_seconds),
+        "caseProcessSeconds": case_seconds,
+    }
+
+
+def mission_statistics(solutions: list[dict[str, Any]]) -> dict[str, float]:
+    totals = []
+    external = []
+    for solution in solutions:
+        missions = solution["actual"].get("missions", {})
+        totals.append(sum(float(value) for value in missions.values()))
+        external.append(sum(
+            float(value) for mission_id, value in missions.items()
+            if str(mission_id).startswith("EXT_")
+        ))
+    return {
+        "meanMissionTasks": sum(totals) / len(totals),
+        "meanExternalMissionTasks": sum(external) / len(external),
+    }
+
+
+def build_three_method_analysis(
+    milp_metrics: list[dict[str, Any]],
+    benders_metrics: list[dict[str, Any]],
+    qlearning_metrics: list[dict[str, Any]],
+    milp_solutions: list[dict[str, Any]],
+    benders_solutions: list[dict[str, Any]],
+    qlearning_solutions: list[dict[str, Any]],
+) -> dict[str, Any]:
+    metrics_by_method = {
+        "milp": milp_metrics,
+        "benders-cg": benders_metrics,
+        "tabular-hrl": qlearning_metrics,
+    }
+    solutions_by_method = {
+        "milp": milp_solutions,
+        "benders-cg": benders_solutions,
+        "tabular-hrl": qlearning_solutions,
+    }
+    milp_by_case = {row["caseId"]: row for row in milp_metrics}
+    summaries = []
+    for method_id, metrics in metrics_by_method.items():
+        mean_cost = sum(float(row["totalCost"]) for row in metrics) / len(metrics)
+        mean_runtime = sum(float(row["runtimeSeconds"]) for row in metrics) / len(metrics)
+        pairwise_gaps = [
+            (float(row["totalCost"]) - float(milp_by_case[row["caseId"]]["totalCost"]))
+            / abs(float(milp_by_case[row["caseId"]]["totalCost"]))
+            for row in metrics
+        ]
+        summaries.append({
+            "methodId": method_id,
+            "label": next(label for key, label, _ in METHODS if key == method_id),
+            "validatedCases": sum(row["validationStatus"] == "pass" for row in metrics),
+            "meanCost": mean_cost,
+            "meanRuntimeSeconds": mean_runtime,
+            "meanPairwiseGapToMilp": sum(pairwise_gaps) / len(pairwise_gaps),
+            **mission_statistics(solutions_by_method[method_id]),
+        })
+
+    categories = []
+    for category, label in CATEGORY_LABELS.items():
+        row: dict[str, Any] = {"category": category, "label": label}
+        milp_rows = [item for item in milp_metrics if item["category"] == category]
+        milp_category_by_case = {item["caseId"]: item for item in milp_rows}
+        for method_id, metrics in metrics_by_method.items():
+            selected = [item for item in metrics if item["category"] == category]
+            row[method_id] = {
+                "meanCost": sum(float(item["totalCost"]) for item in selected) / len(selected),
+                "meanPairwiseGapToMilp": sum(
+                    (float(item["totalCost"]) - float(milp_category_by_case[item["caseId"]]["totalCost"]))
+                    / abs(float(milp_category_by_case[item["caseId"]]["totalCost"]))
+                    for item in selected
+                ) / len(selected),
+            }
+        categories.append(row)
+
+    q_by_case = {row["caseId"]: row for row in qlearning_metrics}
+    benders_by_case = {row["caseId"]: row for row in benders_metrics}
+    q_gap_to_benders = sum(
+        (q_by_case[case_id]["totalCost"] - benders_by_case[case_id]["totalCost"])
+        / abs(benders_by_case[case_id]["totalCost"])
+        for case_id in q_by_case
+    ) / len(q_by_case)
+    total_q_delta = sum(
+        q_by_case[case_id]["totalCost"] - milp_by_case[case_id]["totalCost"]
+        for case_id in q_by_case
+    )
+    q_cost_drivers = []
+    for _, label, metric_key in COST_COMPONENTS:
+        milp_mean = sum(float(row[metric_key]) for row in milp_metrics) / len(milp_metrics)
+        q_mean = sum(float(row[metric_key]) for row in qlearning_metrics) / len(qlearning_metrics)
+        delta = q_mean - milp_mean
+        q_cost_drivers.append({
+            "key": metric_key,
+            "label": label,
+            "milpMean": milp_mean,
+            "qlearningMean": q_mean,
+            "delta": delta,
+            "shareOfGap": None if total_q_delta == 0 else delta * len(qlearning_metrics) / total_q_delta,
+        })
+    q_cost_drivers.sort(key=lambda item: abs(item["delta"]), reverse=True)
+
+    ensemble = read_json(QLEARNING_ROOT / "models" / "ensemble.json")
+    train_experience = read_json(QLEARNING_ROOT / "experience" / "train.json")
+    validation_experience = read_json(QLEARNING_ROOT / "experience" / "validation.json")
+    training_summary = read_json(QLEARNING_ROOT / "models" / "training_summary.json")
+    traces = [item for solution in qlearning_solutions for item in solution.get("rl_action_trace", [])]
+    test_states = {tuple(item["state"]) for item in traces}
+    model_states = [tuple(int(value) for value in key.split("|")) for key in ensemble["q"]]
+    wall = qlearning_wall_timings()
+    q_summary = next(item for item in summaries if item["methodId"] == "tabular-hrl")
+    milp_summary = next(item for item in summaries if item["methodId"] == "milp")
+    transport_driver = next(item for item in q_cost_drivers if item["key"] == "transportCost")
+    residual_gap_without_transport = (
+        q_summary["meanCost"] - milp_summary["meanCost"] - transport_driver["delta"]
+    ) / milp_summary["meanCost"]
+    return {
+        "caseCount": 12,
+        "methodCaseValidationPasses": sum(
+            row["validationStatus"] == "pass"
+            for metrics in metrics_by_method.values() for row in metrics
+        ),
+        "methods": summaries,
+        "categories": categories,
+        "qlearningGapToBendersCg": q_gap_to_benders,
+        "qlearningCostDrivers": q_cost_drivers,
+        "qlearningDiagnostics": {
+            "convergedSeeds": training_summary["converged_seed_count"],
+            "totalSeeds": len(training_summary["seeds"]),
+            "trainTransitions": train_experience["transition_count"],
+            "validationTransitions": validation_experience["transition_count"],
+            "learnedStateCount": len(model_states),
+            "testUniqueStateCount": len(test_states),
+            "capacityBinsUsed": len({state[1] for state in model_states}),
+            "serviceRiskBinsUsed": len({state[2] for state in model_states}),
+            "decisionCount": len(traces),
+            "shieldChangedDecisions": sum(bool(item.get("feasibility_shield_used")) for item in traces),
+            "meanMissionTasks": q_summary["meanMissionTasks"],
+            "milpMeanMissionTasks": milp_summary["meanMissionTasks"],
+            "meanExternalMissionTasks": q_summary["meanExternalMissionTasks"],
+            "milpMeanExternalMissionTasks": milp_summary["meanExternalMissionTasks"],
+            "residualGapIfTransportDeltaRemoved": residual_gap_without_transport,
+            **wall,
+        },
+        "runtimeCaveat": (
+            "runtimeSeconds accumulates accepted baseline and rolling-plan runtimes. "
+            "Q-learning process wall time additionally includes rejected feasibility-shield candidates, IO and validation."
+        ),
+    }
+
+
 def aggregate_animation(solution: dict[str, Any], case: dict[str, Any]) -> dict[str, Any]:
+    travel_slots = {
+        (edge["origin"], edge["destination"]): int(edge["travel_slots"])
+        for edge in case["edges"]
+    }
+    node_by_id = {node["id"]: node for node in case["nodes"]}
+    step_by_snapshot = {
+        step["plan_after_snapshot_id"]: step
+        for step in solution.get("rolling_steps", [])
+    }
+
+    def mission_segments(mission: dict[str, Any]) -> list[dict[str, Any]]:
+        if mission.get("segments"):
+            return mission["segments"]
+        route = list(mission.get("route", []))
+        departure = int(mission.get("departure_slot", 0))
+        segments = []
+        for origin, destination in zip(route, route[1:]):
+            arrival = departure + travel_slots[(origin, destination)]
+            segments.append({
+                "origin": origin, "destination": destination,
+                "departure_slot": departure, "arrival_slot": arrival,
+            })
+            departure = arrival
+        return segments
+
     snapshots = []
-    for snapshot in solution["plan_snapshots"]:
+    for snapshot_index, snapshot in enumerate(solution["plan_snapshots"]):
+        raw_missions = snapshot.get("selected_missions", snapshot.get("missions", []))
+        service_mission = {}
+        for mission in raw_missions:
+            service_mission.setdefault(mission.get("service_id"), mission)
         flow_by_key: dict[tuple[Any, ...], float] = defaultdict(float)
         for itinerary in snapshot["cargo_itineraries"]:
             tons = float(itinerary["tons"])
-            for leg in itinerary["legs"]:
-                for segment in leg.get("segments", []):
+            if itinerary.get("legs"):
+                itinerary_segments = [
+                    segment
+                    for leg in itinerary["legs"]
+                    for segment in leg.get("segments", [])
+                ]
+            else:
+                itinerary_segments = [
+                    segment
+                    for service_id in itinerary.get("service_ids", [])
+                    for segment in mission_segments(service_mission[service_id])
+                    if service_id in service_mission
+                ]
+            for segment in itinerary_segments:
                     key = (
                         segment["origin"], segment["destination"],
                         int(segment["departure_slot"]), int(segment["arrival_slot"]),
@@ -306,13 +538,14 @@ def aggregate_animation(solution: dict[str, Any], case: dict[str, Any]) -> dict[
                         "departureSlot": segment["departure_slot"],
                         "arrivalSlot": segment["arrival_slot"],
                     }
-                    for segment in mission["segments"]
+                    for segment in mission_segments(mission)
                 ],
             }
-            for mission in snapshot["selected_missions"]
+            for mission in raw_missions
         ]
         nodes = []
         for node in snapshot["nodes"]:
+            case_node = node_by_id[node["node_id"]]
             nodes.append({
                 "nodeId": node["node_id"],
                 "timeline": [
@@ -320,29 +553,42 @@ def aggregate_animation(solution: dict[str, Any], case: dict[str, Any]) -> dict[
                         "slot": state["slot"],
                         "ownVehicles": state["own_vehicles"],
                         "handlingTons": state["handling_tons"],
-                        "handlingCapacityTons": state["handling_capacity_tons"],
-                        "handlingUtilization": state["handling_utilization"],
+                        "handlingCapacityTons": state.get(
+                            "handling_capacity_tons",
+                            case_node["handling_capacity"][min(int(state["slot"]), len(case_node["handling_capacity"]) - 1)],
+                        ),
+                        "handlingUtilization": state.get(
+                            "handling_utilization",
+                            float(state["handling_tons"]) / max(
+                                1.0,
+                                float(case_node["handling_capacity"][min(int(state["slot"]), len(case_node["handling_capacity"]) - 1)]),
+                            ),
+                        ),
                         "inventoryTons": state["inventory_tons"],
-                        "inventoryCost": state["inventory_cost"],
-                        "releasedTons": state["released_tons"],
-                        "cargoDepartureTons": state["cargo_departure_tons"],
-                        "cargoArrivalTons": state["cargo_arrival_tons"],
-                        "deliveredTons": state["delivered_tons"],
-                        "ownVehicleDepartures": state["own_vehicle_departures"],
-                        "externalVehicleDepartures": state["external_vehicle_departures"],
+                        "inventoryCost": state.get("inventory_cost", 0.0),
+                        "releasedTons": state.get("released_tons", 0.0),
+                        "cargoDepartureTons": state.get("cargo_departure_tons", 0.0),
+                        "cargoArrivalTons": state.get("cargo_arrival_tons", 0.0),
+                        "deliveredTons": state.get("delivered_tons", 0.0),
+                        "ownVehicleDepartures": state.get("own_vehicle_departures", 0.0),
+                        "externalVehicleDepartures": state.get("external_vehicle_departures", 0.0),
                     }
                     for state in node["timeline"]
                 ],
             })
+        step = step_by_snapshot.get(snapshot["snapshot_id"])
+        source_plan = solution["baseline"] if snapshot_index == 0 else (step or solution["actual"])
         snapshots.append({
             "snapshotId": snapshot["snapshot_id"],
             "decisionSlot": snapshot["decision_slot"],
-            "decisionHour": snapshot["decision_hour"],
-            "decisionType": snapshot["decision_type"],
-            "triggerReasons": snapshot["trigger_reasons"],
-            "objective": snapshot["objective"],
-            "objectiveComponents": snapshot["objective_components"],
-            "serviceRates": snapshot["service_rates"],
+            "decisionHour": snapshot.get("decision_hour", int(snapshot["decision_slot"]) * 3),
+            "decisionType": snapshot.get(
+                "decision_type", "baseline" if snapshot_index == 0 else step.get("decision_type", "periodic")
+            ),
+            "triggerReasons": snapshot.get("trigger_reasons", [] if step is None else step.get("reasons", [])),
+            "objective": snapshot.get("objective", source_plan.get("objective", 0.0)),
+            "objectiveComponents": snapshot.get("objective_components", source_plan.get("objective_components", {})),
+            "serviceRates": snapshot.get("service_rates", source_plan.get("service_rates", {})),
             "nodes": nodes,
             "missions": missions,
             "cargoFlows": cargo_flows,
@@ -403,10 +649,14 @@ def main() -> None:
     first_case: dict[str, Any] | None = None
     summaries = []
     real_metrics = []
+    milp_solutions = []
     benders_metrics = []
     benders_solutions = []
+    qlearning_metrics = []
+    qlearning_solutions = []
     animation_manifest = []
     benders_animation_manifest = []
+    qlearning_animation_manifest = []
     solver_limit_hits = []
     gurobi_calls = 0
     for case_id in ordered_case_ids:
@@ -420,6 +670,7 @@ def main() -> None:
         validation = read_json(RESULT_DIR / f"{case_id}_validation.json")
         if solution.get("status") != "complete" or validation.get("status") != "pass":
             raise RuntimeError(f"{case_id} is not a complete validated MILP result")
+        milp_solutions.append(solution)
         benders_solution = read_json(BENDERS_RESULT_DIR / f"{case_id}.json")
         benders_validation = read_json(BENDERS_RESULT_DIR / f"{case_id}_validation.json")
         if benders_solution.get("status") != "complete" or benders_validation.get("status") != "pass":
@@ -427,6 +678,11 @@ def main() -> None:
         if benders_solution.get("run_id") != read_json(BENDERS_MANIFEST).get("run_id"):
             raise RuntimeError(f"{case_id} does not belong to the completed Benders-CG run")
         benders_solutions.append(benders_solution)
+        qlearning_solution = read_json(QLEARNING_RESULT_DIR / f"{case_id}.json")
+        qlearning_validation = read_json(QLEARNING_RESULT_DIR / f"{case_id}_validation.json")
+        if qlearning_solution.get("status") != "complete" or qlearning_validation.get("status") != "pass":
+            raise RuntimeError(f"{case_id} is not a complete validated Q-learning result")
+        qlearning_solutions.append(qlearning_solution)
         if first_case is None:
             first_case = case
 
@@ -519,6 +775,10 @@ def main() -> None:
             benders_solution, benders_validation,
             method_id="benders-cg", method_label="Benders分解＋列生成", category=category,
         ))
+        qlearning_metrics.append(solution_metric(
+            qlearning_solution, qlearning_validation,
+            method_id="tabular-hrl", method_label="两层表格Q-learning", category=category,
+        ))
 
         animation = aggregate_animation(solution, case)
         animation_path = OUTPUT_ROOT / "animations" / f"{case_id}.json"
@@ -542,33 +802,20 @@ def main() -> None:
             "url": f"data/animations/benders-cg/{case_id}.json",
             "bytes": benders_animation_path.stat().st_size,
         })
+        qlearning_animation = aggregate_animation(qlearning_solution, case)
+        qlearning_animation_path = OUTPUT_ROOT / "animations" / "qlearning" / f"{case_id}.json"
+        write_json(qlearning_animation_path, qlearning_animation)
+        if qlearning_animation_path.stat().st_size > 5 * 1024 * 1024:
+            raise RuntimeError(f"Q-learning animation chunk exceeds 5 MB: {case_id}")
+        qlearning_animation_manifest.append({
+            "caseId": case_id,
+            "category": category,
+            "url": f"data/animations/qlearning/{case_id}.json",
+            "bytes": qlearning_animation_path.stat().st_size,
+        })
 
     assert first_case is not None
-    all_metrics = [*real_metrics, *benders_metrics]
-    metric_names = [
-        "totalCost", "transportCost", "handlingCost", "inventoryCost",
-        "transferCost", "delayCost", "serviceShortfallCost", "changeCost",
-        "runtimeSeconds", "completionHour", "urgentOnTimeRate",
-        "standardOnTimeRate", "economyOnTimeRate", "changedMissionTasks",
-        "reroutedTons",
-    ]
-    for method_id, method_label, data_status in METHODS:
-        if data_status != "mock":
-            continue
-        for real in real_metrics:
-            mock = dict(real)
-            mock.update({
-                "methodId": method_id,
-                "methodLabel": method_label,
-                "dataStatus": "mock",
-                "caseStatus": "mock_placeholder",
-                "validationStatus": "not_run",
-                "baselineStatus": "not_run",
-                "finalStatus": "not_run",
-            })
-            for name in metric_names:
-                mock[name] = mock_metric(method_id, real["caseId"], name, real.get(name))
-            all_metrics.append(mock)
+    all_metrics = [*real_metrics, *benders_metrics, *qlearning_metrics]
 
     nodes = []
     for node in first_case["nodes"]:
@@ -624,6 +871,10 @@ def main() -> None:
         ],
         "metrics": all_metrics,
         "pairedAnalysis": build_paired_analysis(real_metrics, benders_metrics, benders_solutions),
+        "threeMethodAnalysis": build_three_method_analysis(
+            real_metrics, benders_metrics, qlearning_metrics,
+            milp_solutions, benders_solutions, qlearning_solutions,
+        ),
         "experimentSummary": {
             "completedCases": len(real_metrics),
             "validatedCases": sum(metric["validationStatus"] == "pass" for metric in real_metrics),
@@ -639,10 +890,7 @@ def main() -> None:
             ),
         },
         "solverLimitHits": solver_limit_hits,
-        "mockPolicy": (
-            "Mock values are deterministic neutral perturbations for interface demonstration only. "
-            "They are excluded from findings, rankings and significance claims."
-        ),
+        "mockPolicy": "No mock method metrics are present; all three methods use validated frozen-test results.",
     })
     write_json(OUTPUT_ROOT / "animation-manifest.json", {
         "defaultCaseId": "test_urgent_insert_002",
@@ -650,12 +898,12 @@ def main() -> None:
         "methods": [
             {"methodId": "milp", "dataStatus": "real", "cases": animation_manifest},
             {"methodId": "benders-cg", "dataStatus": "real", "cases": benders_animation_manifest},
-            {"methodId": "tabular-hrl", "dataStatus": "mock", "cases": animation_manifest},
+            {"methodId": "tabular-hrl", "dataStatus": "real", "cases": qlearning_animation_manifest},
         ],
     })
     manifest = {
         "schemaVersion": 1,
-        "realMethods": ["milp", "benders-cg"],
+        "realMethods": ["milp", "benders-cg", "tabular-hrl"],
         "caseCount": 12,
         "files": {
             "foundation": "data/foundation.json",
@@ -663,10 +911,15 @@ def main() -> None:
             "comparison": "data/comparison.json",
             "animationManifest": "data/animation-manifest.json",
         },
-        "sources": ["results/gurobi_v6_12/test", "results/benders_cg_v6_12/test"],
+        "sources": [
+            "results/gurobi_v6_12/test",
+            "results/benders_cg_v6_12/test",
+            "results/qlearning_v1/test",
+        ],
         "sourceRawBytesByMethod": {
             "milp": sum((RESULT_DIR / f"{case_id}.json").stat().st_size for case_id in ordered_case_ids),
             "benders-cg": sum((BENDERS_RESULT_DIR / f"{case_id}.json").stat().st_size for case_id in ordered_case_ids),
+            "tabular-hrl": sum((QLEARNING_RESULT_DIR / f"{case_id}.json").stat().st_size for case_id in ordered_case_ids),
         },
     }
     manifest["sourceRawBytes"] = sum(manifest["sourceRawBytesByMethod"].values())

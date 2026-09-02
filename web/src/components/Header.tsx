@@ -19,7 +19,7 @@ export default function Header() {
           <h1>动态快运网络班车开行与货物路由协同优化</h1>
           <p>面向需求预测偏差与随机异常的滚动决策方法比较</p>
           <div className="hero-badges">
-            <span>12 对同口径案例</span><span>2 种真实方法</span><span>72 小时全程回放</span>
+            <span>12 例统一口径测试</span><span>3 种真实方法</span><span>36/36 结果验证通过</span><span>72 小时同步回放</span>
           </div>
         </div>
         <div className="hero-orbit" aria-hidden="true"><i /><i /><i /></div>
